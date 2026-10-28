@@ -1,7 +1,7 @@
 # Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products
 
 Author: Abderrahim Adrabi, Mohammed V University in Rabat.  
-Current version: **v4**.
+Current version: **v5**.
 
 ## The idea of the paper
 
@@ -28,6 +28,7 @@ Build the paper with `cd paper && latexmk -pdf jordan-lie-symmetrized.tex`. Buil
 
 One entry per released version, newest first. Each version is also a tag of this repository.
 
+- **v5** (2026-10-28): the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. No theorem changes.
 - **v4** (2026-10-28): the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes.
 - **v3** (2026-10-28): sections merged and balanced (the preliminaries and the symmetrized product form one section; three sections remain besides the introduction), the standard polynomial and the Li and Wei material removed (references Amitsur, Bresar 1993 and Li and Wei dropped), three commutative diagrams (the Leibniz square, the base-change square, the exact sequence), the companion paper braided-sym-deriv cited in the introduction.
 - **v2** (2026-10-28): three linking sentences before consecutive environments (body-style rule 11), found when the release gate was run against the right tree. No claim changes.

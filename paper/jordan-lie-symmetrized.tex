@@ -1,4 +1,4 @@
-% Version: v4 (2026-10-28), the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
+% Version: v5 (2026-10-28), the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
 \documentclass[]{interact}
 \usepackage[utf8]{inputenc}
 
@@ -43,10 +43,10 @@
 \newcommand{\Inn}{\mathrm{Inn}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\JDer}{\mathrm{JDer}}
-\newcommand{\SDer}{\mathrm{SDer}}
+\newcommand{\BSDer}{\mathrm{BSDer}}
 \newcommand{\LDer}{\mathrm{LDer}}
 
-\newcommand{\paperversion}{3}
+\newcommand{\paperversion}{5}
 
 \begin{document}
 \title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
@@ -120,7 +120,7 @@ For Lie derivations, \citet[Theorem 11]{Cheung2003} found conditions under which
 
 In this paper a Jordan derivation is a derivation of the symmetrized product $x \circ y$, and a Lie derivation is a derivation of the antisymmetrized product $[x,y]$. % claim-ok: states the point of view of this paper
 We follow this order.
-Section~\ref{sec:symmetrized} recalls the classical notions, defines the symmetrized product for an involution of $A \otimes A$, treats the identity and the swap, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
+Section~\ref{sec:symmetrized} recalls the classical notions, recalls the symmetrized product, the braided-symmetric derivations and their values for the identity and the swap from the first paper, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
 Section~\ref{sec:base-change} shows that the dimension of the space of Jordan derivations is stable under extension of the base field.
 Section~\ref{sec:lie} treats the antisymmetrized product, full matrix algebras, and triangular algebras through the theorems of Martindale and Cheung.
 We place each example right after the result it illustrates.
@@ -128,7 +128,7 @@ The twisted symmetrized product and its derivations are the subject of the first
 
 \section{Preliminaries and the symmetrized product}\label{sec:symmetrized}
 
-This section recalls the classical notions we need, defines the symmetrized product for an involution of $A \otimes A$ and identifies the derivations for the identity and the swap.
+This section recalls the classical notions we need, then the symmetrized product and the braided-symmetric derivations of the first paper, with the result of that paper for the identity and the swap.
 
 
 From now on, $A$ is a $K$-algebra with unit $1$.
@@ -172,19 +172,21 @@ So $T$ is not prime, since $e_1 \neq 0$ and $e_2 \neq 0$, and the prime-ring res
 
 Let $A$ be a $K$-algebra with product $\mu$.
 Let $\sigma \colon A \otimes A \to A \otimes A$ be a $K$-linear map with $\sigma^2 = \mathrm{id}$, for instance the swap $\tau(x \otimes y) = y \otimes x$.
-It gives a symmetrized product
+It gives a symmetrized product \cite[Section 2]{AdrabiBennis2026a}
 \[
 x \cdot_\sigma y = \mu(x \otimes y) + \mu(\sigma(x \otimes y)).
 \]
 For $\sigma = \tau$ this is the Jordan product $x \circ y$.
 
-\begin{definition}\label{def:sigma-derivation} % ours: the notion of this paper
-A \emph{$\sigma$-symmetric derivation} for $\sigma$ is a $K$-linear map $D \colon A \to A$ with
+\begin{definition}[{\cite[Definition 2.1]{AdrabiBennis2026a}}]\label{def:sigma-derivation}
+Let $A$ be a $K$-algebra and let $\sigma$ be a $K$-linear involution of $A \otimes A$.
+A \emph{braided-symmetric derivation} for $\sigma$ is a $K$-linear map $D \colon A \to A$ with
 \begin{equation}\label{eq:sigma-leibniz}
 D(x \cdot_\sigma y) = D(x) \cdot_\sigma y + x \cdot_\sigma D(y) \quad \text{for all } x, y \in A.
 \end{equation}
-We write $\SDer_\sigma(A)$ for the set of $\sigma$-symmetric derivations for $\sigma$.
+We write $\BSDer_\sigma(A)$ for the set of braided-symmetric derivations for $\sigma$.
 This set is a $K$-subspace of $\mathrm{End}_K(A)$, since the condition is linear in $D$.
+For an automorphism $\alpha$ of $A$, we write $\BSDer_\sigma(A)^\alpha$ for the subset of maps $D$ with $D\alpha = \alpha D$.
 \end{definition}
 
 Identity~\eqref{eq:sigma-leibniz} says that the following square commutes.
@@ -195,33 +197,33 @@ A \otimes A \arrow[r, "\mu_\sigma"'] & A
 \end{tikzcd}
 \]
 
-The next remark records what Definition~\ref{def:sigma-derivation} says for the two involutions that use no structure of $A$.
+The next remark, recalled from the first paper, says what Definition~\ref{def:sigma-derivation} gives for the two involutions that use no structure of $A$.
 
-\begin{remark}\label{rem:sigma-derivation-classification}
+\begin{remark}[{\cite[Remark 2.4]{AdrabiBennis2026a}}]\label{rem:sigma-derivation-classification}
 Let $A$ be a $K$-algebra and let $\sigma$ be an involution of $A \otimes A$.
 Identity~\eqref{eq:sigma-leibniz} for $\sigma$ is the Leibniz rule for the product $\cdot_\sigma$.
-So $\SDer_\sigma(A)$ is the set of derivations of the nonassociative algebra $(A, \cdot_\sigma)$, in the sense of \citet[Part I]{Jacobson1937}.
+So $\BSDer_\sigma(A)$ is the set of derivations of the nonassociative algebra $(A, \cdot_\sigma)$, in the sense of \citet[Part I]{Jacobson1937}.
 
 For the identity, $x \cdot_{\mathrm{id}} y = 2xy$, so the identity reads
 \[
 2D(xy) = 2\bigl(D(x)y + xD(y)\bigr).
 \]
-If $\operatorname{char} K \neq 2$, we divide by $2$ and get $\SDer_{\mathrm{id}}(A) = \Der(A)$.
-If $\operatorname{char} K = 2$, then $x \cdot_{\mathrm{id}} y = 0$, so $\SDer_{\mathrm{id}}(A)$ contains every linear map.
+If $\operatorname{char} K \neq 2$, we divide by $2$ and get $\BSDer_{\mathrm{id}}(A) = \Der(A)$.
+If $\operatorname{char} K = 2$, then $x \cdot_{\mathrm{id}} y = 0$, so $\BSDer_{\mathrm{id}}(A)$ contains every linear map.
 So it is larger than $\Der(A)$.
 For example, take the linear map with $D(1) = 1$ and $D = 0$ on a complement of $K1$.
 Then $D$ is not a derivation, since a derivation satisfies $D(1) = D(1 \cdot 1) = 2D(1) = 0$ in characteristic $2$.
 
 For the swap $\tau$ we get $x \cdot_\tau y = xy + yx = x \circ y$.
 So the defining identity is the $\circ$ form of the Jordan identity recalled above.
-Hence $\SDer_\tau(A) = \JDer(A)$ in every characteristic.
+Hence $\BSDer_\tau(A) = \JDer(A)$ in every characteristic.
 
 Every derivation is a Jordan derivation \citep[p.~1003]{Bresar1988}.
 So in every characteristic
 \[
-\Der(A) \subseteq \SDer_\tau(A) = \JDer(A).
+\Der(A) \subseteq \BSDer_\tau(A) = \JDer(A).
 \]
-When $\operatorname{char} K \neq 2$, this gives $\SDer_{\mathrm{id}}(A) \subseteq \SDer_\tau(A)$.
+When $\operatorname{char} K \neq 2$, this gives $\BSDer_{\mathrm{id}}(A) \subseteq \BSDer_\tau(A)$.
 This is an inclusion between the spaces of two involutions on one algebra. % claim-ok: names the inclusion displayed just above
 \end{remark}
 
@@ -236,7 +238,7 @@ The pair $(\varepsilon,\varepsilon)$ gives $0 = D(\varepsilon^2) = 2\varepsilon 
 If $\operatorname{char} K \neq 2$, then $\beta = 0$, and every derivation has the form $D(a + b\varepsilon) = bc\varepsilon$, so $\dim_K \Der(A) = 1$.
 If $\operatorname{char} K = 2$, then $\beta$ is free, and $\dim_K \Der(A) = 2$.
 Since $A$ is commutative, every commutator is zero, so $\LDer(A) = \mathrm{End}_K(A)$, which has dimension $2 \cdot 2 = 4$.
-Each derivation lies in $\SDer_\tau(A)$ by Remark~\ref{rem:sigma-derivation-classification}.
+Each derivation lies in $\BSDer_\tau(A)$ by Remark~\ref{rem:sigma-derivation-classification}.
 If $\operatorname{char} K = 2$, then $x \circ y = 2xy = 0$ for all $x, y$, so $\JDer(A) = \mathrm{End}_K(A)$ has dimension $4$, which exceeds $\dim_K \Der(A) = 2$.
 \end{example}
 
@@ -252,7 +254,7 @@ It follows from Remark~\ref{rem:sigma-derivation-classification} and Theorem~\re
 \begin{corollary}\label{cor:triangular-jordan} % ours: follows from the remark and the theorem of Zhang and Yu stated above
 Let $R$ be a $2$-torsion free commutative ring, let $A$ and $B$ be unital $R$-algebras, and let $M$ be a unital $(A,B)$-bimodule that is faithful as a left $A$-module and as a right $B$-module.
 Suppose also that $\mathrm{Tri}(A,M,B)$ is $2$-torsion free.
-Then $\SDer_\tau(\mathrm{Tri}(A,M,B)) = \Der(\mathrm{Tri}(A,M,B))$.
+Then $\BSDer_\tau(\mathrm{Tri}(A,M,B)) = \Der(\mathrm{Tri}(A,M,B))$.
 \end{corollary}
 
 \section{Extension of the base field}\label{sec:base-change}
@@ -294,7 +296,7 @@ So $\Psi$ carries $\mu_L$ and $\sigma_L$ to $\mathrm{id}_L \otimes \mu$ and $\ma
 Hence $(1 \otimes x) \cdot_{\sigma_L} (1 \otimes y) = 1 \otimes (x \cdot_\sigma y)$ for $x, y \in A$.
 Thus the product $\cdot_{\sigma_L}$ on $A_L$ extends the product $\cdot_\sigma$ on $A$.
 
-Proposition~\ref{prop:base-change} below says that extending the base field does not change the dimension of the space of $\sigma$-symmetric derivations. The proof compares spaces of linear maps over $K$ and over $L$, and uses results from the recent literature, which we recall. % claim-ok: signpost for the cited results below
+Proposition~\ref{prop:base-change} below says that extending the base field does not change the dimension of the space of braided-symmetric derivations. The proof compares spaces of linear maps over $K$ and over $L$, and uses results from the recent literature, which we recall. % claim-ok: signpost for the cited results below
 For a $K$-vector space $E$ we write $E_L = L \otimes_K E$, and for a $K$-linear map $f$ we write $f_L = \mathrm{id}_L \otimes f$.
 
 Let $L$ be an extension field of $K$, and let $(c_i)_{i \in I}$ be a basis of $L$ over $K$.
@@ -337,8 +339,8 @@ Define the $K$-linear map
 \Phi \colon \mathrm{End}_K(A) \to \mathrm{Hom}_K(A \otimes A, A), \qquad
 \Phi(D) = D \circ m_\sigma - m_\sigma \circ (D \otimes \mathrm{id} + \mathrm{id} \otimes D).
 \]
-So $\Phi(D)$ is the difference of the two sides of identity~\eqref{eq:sigma-leibniz}, and $\SDer_\sigma(A) = \ker \Phi$.
-Write $\Phi_L$ for the same map for $A_L$ and $\sigma_L$, so $\SDer_{\sigma_L}(A_L) = \ker \Phi_L$.
+So $\Phi(D)$ is the difference of the two sides of identity~\eqref{eq:sigma-leibniz}, and $\BSDer_\sigma(A) = \ker \Phi$.
+Write $\Phi_L$ for the same map for $A_L$ and $\sigma_L$, so $\BSDer_{\sigma_L}(A_L) = \ker \Phi_L$.
 
 \begin{proposition}\label{prop:base-change}
 Let $K$ be a field, let $A$ be a finite-dimensional $K$-algebra, and let $\sigma$ be an involution of $A \otimes A$.
@@ -358,13 +360,13 @@ L \otimes_K \mathrm{End}_K(A) \arrow[r, "\mathrm{id}_L \otimes \Phi"] \arrow[d, 
 \]
 So $\beta$ and $\gamma$ carry the exact sequence
 \[
-0 \to L \otimes_K \SDer_\sigma(A) \to L \otimes_K \mathrm{End}_K(A) \xrightarrow{\ \mathrm{id}_L \otimes \Phi\ } L \otimes_K \mathrm{Hom}_K(A \otimes A, A)
+0 \to L \otimes_K \BSDer_\sigma(A) \to L \otimes_K \mathrm{End}_K(A) \xrightarrow{\ \mathrm{id}_L \otimes \Phi\ } L \otimes_K \mathrm{Hom}_K(A \otimes A, A)
 \]
 isomorphically onto the exact sequence
 \[
-0 \to \SDer_{\sigma_L}(A_L) \to \mathrm{End}_L(A_L) \xrightarrow{\ \Phi_L\ } \mathrm{Hom}_L(A_L \otimes_L A_L, A_L).
+0 \to \BSDer_{\sigma_L}(A_L) \to \mathrm{End}_L(A_L) \xrightarrow{\ \Phi_L\ } \mathrm{Hom}_L(A_L \otimes_L A_L, A_L).
 \]
-In particular $L \otimes_K \SDer_\sigma(A) \cong \SDer_{\sigma_L}(A_L)$ and $\dim_L \SDer_{\sigma_L}(A_L) = \dim_K \SDer_\sigma(A)$.
+In particular $L \otimes_K \BSDer_\sigma(A) \cong \BSDer_{\sigma_L}(A_L)$ and $\dim_L \BSDer_{\sigma_L}(A_L) = \dim_K \BSDer_\sigma(A)$.
 \end{proposition}
 
 \begin{proof}
@@ -381,10 +383,10 @@ Hence both sides give
 cc'c'' \otimes \Bigl(D\bigl(m_\sigma(x \otimes y)\bigr) - m_\sigma\bigl(D(x) \otimes y + x \otimes D(y)\bigr)\Bigr) = cc'c'' \otimes \Phi(D)(x \otimes y).
 \]
 
-Third, $\ker \Phi = \SDer_\sigma(A)$.
-Since $L \otimes_K -$ is exact, $\ker(\mathrm{id}_L \otimes \Phi) = L \otimes_K \SDer_\sigma(A)$.
+Third, $\ker \Phi = \BSDer_\sigma(A)$.
+Since $L \otimes_K -$ is exact, $\ker(\mathrm{id}_L \otimes \Phi) = L \otimes_K \BSDer_\sigma(A)$.
 By the second step, $\beta$ and $\gamma$ turn $\mathrm{id}_L \otimes \Phi$ into $\Phi_L$.
-So $\beta$ maps $L \otimes_K \SDer_\sigma(A)$ onto $\ker \Phi_L = \SDer_{\sigma_L}(A_L)$.
+So $\beta$ maps $L \otimes_K \BSDer_\sigma(A)$ onto $\ker \Phi_L = \BSDer_{\sigma_L}(A_L)$.
 \end{proof}
 
 
@@ -394,7 +396,7 @@ The next remark shows that the finite-dimensional hypothesis of Proposition~\ref
 The finite-dimensional hypothesis in Proposition~\ref{prop:base-change} cannot be dropped.
 Take $\sigma = -\mathrm{id}$.
 Then $\sigma^2 = \mathrm{id}$, so $\sigma$ is an involution of $A \otimes A$, and $x \cdot_\sigma y = 0$ for all $x, y$.
-So every $K$-linear map is a $\sigma$-symmetric derivation, both for $A$ and for $A_L$.
+So every $K$-linear map is a braided-symmetric derivation, both for $A$ and for $A_L$.
 
 Let $A = K[x]$ and $L = K(t)$, where $t$ is transcendental over $K$.
 Define $D' \in \mathrm{End}_L(A_L)$ by $D'(x^i) = t^i x^i$ for all $i \geq 0$.
@@ -414,7 +416,7 @@ Then $\dim_L \JDer(A_L) = \dim_K \JDer(A)$.
 
 \begin{proof}
 For the swap $\tau$ of $A \otimes A$, the involution $\tau_L$ is the swap of $A_L \otimes_L A_L$, since $\tau_L((c \otimes x) \otimes_L (c' \otimes y)) = \Psi^{-1}(cc' \otimes (y \otimes x)) = (c' \otimes y) \otimes_L (c \otimes x)$.
-By Remark~\ref{rem:sigma-derivation-classification}, $\SDer_\tau(A) = \JDer(A)$ and $\SDer_{\tau_L}(A_L) = \JDer(A_L)$.
+By Remark~\ref{rem:sigma-derivation-classification}, $\BSDer_\tau(A) = \JDer(A)$ and $\BSDer_{\tau_L}(A_L) = \JDer(A_L)$.
 Proposition~\ref{prop:base-change} gives the equality of dimensions.
 \end{proof}
 
@@ -511,7 +513,7 @@ We now apply Theorems~\ref{thm:alizadeh}, \ref{thm:lam-matrix}, \ref{thm:martind
 \begin{example}[Full matrix algebras]\label{ex:matrix}
 Let $A = M_n(K)$ with $n \geq 2$, and let $e_{ij}$ be the matrix unit with entry $1$ in position $(i,j)$ and $0$ elsewhere.
 If $\operatorname{char} K \neq 2$, every Jordan derivation of $M_n(K)$ is a derivation by Theorem~\ref{thm:alizadeh} applied to the ring $K$ and the $K$-bimodule $K$, since $K$ is then $2$-torsion free.
-So $\SDer_\tau(A) = \JDer(A) = \Der(A)$ in that case.
+So $\BSDer_\tau(A) = \JDer(A) = \Der(A)$ in that case.
 
 Let $\theta(x) = \operatorname{tr}(x) I$.
 Its values are central, and $\theta([x,y]) = (\operatorname{tr}(xy) - \operatorname{tr}(yx)) I = 0$.
