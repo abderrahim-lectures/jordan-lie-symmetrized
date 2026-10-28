@@ -1,0 +1,682 @@
+% Version: v2 (2026-10-28), three linking sentences before consecutive environments (body-style rule 11). No claim changes.
+\documentclass[]{interact}
+\usepackage[utf8]{inputenc}
+
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\usepackage[hidelinks,pagebackref=false]{hyperref}
+\usepackage[all]{hypcap}
+\hypersetup{linktoc=all}
+
+\usepackage{tikz}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{float}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibpunct[, ]{[}{]}{,}{n}{,}{,}
+\renewcommand\bibfont{\fontsize{10}{12}\selectfont}
+\makeatletter
+\def\NAT@def@citea{\def\@citea{\NAT@separator}}
+\makeatother
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}{Notation}
+
+\allowdisplaybreaks
+\newcommand{\Der}{\mathrm{Der}}
+\newcommand{\Inn}{\mathrm{Inn}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\JDer}{\mathrm{JDer}}
+\newcommand{\SDer}{\mathrm{SDer}}
+\newcommand{\LDer}{\mathrm{LDer}}
+
+\newcommand{\paperversion}{2}
+
+\begin{document}
+\title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
+\author{
+\name{Abderrahim Adrabi\textsuperscript{a,b}\thanks{CONTACT A. Adrabi. Email: abderrahim.adrabi@um5r.ac.ma}}
+	\affil{\textsuperscript{a}Faculty of Sciences, Mohammed V University in Rabat, Morocco;\\ \textsuperscript{b}Faculty of Educational Sciences, Mohammed V University in Rabat, Morocco}
+}
+
+\history{Preprint version \paperversion, compiled \today}
+
+\maketitle
+
+\begin{abstract}
+We view the Jordan derivations and the Lie derivations of an algebra as the derivations of two products on the algebra.
+These are the symmetrized product $xy + yx$ and the antisymmetrized product $xy - yx$.
+The question whether such a derivation is a derivation becomes a comparison of three spaces, $\Der(A)$, $\JDer(A)$ and $\LDer(A)$.
+We show that the dimension of $\JDer(A)$ does not change when the base field is extended.
+We compute the three spaces for full matrix algebras, and we apply the theorems of Zhang and Yu and of Cheung to triangular algebras, with the upper triangular $2 \times 2$ matrices as the smallest case.
+In both cases a trace-type map is a Lie derivation that is not a derivation.
+\end{abstract}
+
+\begin{keywords}
+Jordan derivations; Lie derivations; symmetrized product; triangular algebras; matrix algebras
+\end{keywords}
+
+\begin{amscode}
+MSC 2020: 16W25; 17C50; 15A78
+\end{amscode}
+
+\section{Introduction}\label{sec:intro}
+
+Throughout, $K$ is a field and an algebra means a unital associative $K$-algebra.
+We take all maps between algebras to be $K$-linear.
+We say so when a result cited below holds more generally for additive maps on rings.
+
+A \emph{derivation} of an algebra $A$ is a linear map $D \colon A \to A$ with $D(xy) = D(x)y + xD(y)$ for all $x, y \in A$.
+The notion goes back to \citet[Part I]{Jacobson1937}, who studied the derivations of an arbitrary nonassociative algebra.
+\citet[\S\S2 and 4]{Hochschild1945} defined the cocycles of an associative algebra, and its $1$-cocycles are the derivations.
+A \emph{Jordan derivation} of $A$ is a linear map with $D(x \circ y) = D(x) \circ y + x \circ D(y)$ for all $x, y \in A$, where $x \circ y = xy + yx$.
+\citet[p.~1104]{Herstein1957} introduced this notion.
+His result needs three notions for a ring $R$.
+We call $R$ \emph{prime} if $aRb = 0$ implies $a = 0$ or $b = 0$ \citep[p.~1003]{Bresar1988}.
+We call $R$ \emph{semiprime} if $aRa = 0$ implies $a = 0$ \citep[p.~1003]{Bresar1988}.
+We call $R$ \emph{$2$-torsion free} if $2a = 0$ implies $a = 0$ \citep[p.~1003]{Bresar1988}.
+So every prime ring is semiprime.
+Herstein proved that every Jordan derivation of a prime ring of characteristic different from $2$ is a derivation \citep[Theorem 3.1]{Herstein1957}.
+Every derivation is a Jordan derivation, and the converse is false in general \citep[p.~1003]{Bresar1988}.
+\citet[Corollary 5]{Cusack1975} extended this result of Herstein to $2$-torsion free semiprime rings, and \citet[Theorem 1]{Bresar1988} gave an independent proof.
+
+A \emph{Lie derivation} of $A$ is a linear map with $D([x,y]) = [D(x), y] + [x, D(y)]$, where $[x,y] = xy - yx$.
+\citet[p.~183]{Martindale1964} studied the Lie derivations of a primitive ring of characteristic not $2$ that contains a nontrivial idempotent, and showed that each has the form $D + T$, with $D$ a derivation and $T$ a map into the centre that vanishes on commutators.
+So for Lie derivations no result of Herstein type can hold.
+Here is the reason.
+Let $t \colon A \to Z(A)$ be a linear map into the centre with $t([x,y]) = 0$ for all $x, y$.
+Every term of the Lie derivation identity for $t$ is then zero, so $t$ is a Lie derivation.
+But $t$ is not a derivation as soon as $t(1) \neq 0$.
+
+So a description of Lie derivations must allow such a term.
+A Lie derivation has the \emph{standard form} if it equals $d + t$, with $d$ a derivation and $t$ a central-valued map that vanishes on commutators \citep[\S1]{Cheung2003}.
+A ring is \emph{left primitive} if it has a faithful simple left module, and right primitive rings are defined in the same way \citep[Definition 11.2]{Lam2001}.
+\citet[Theorem 2]{Martindale1964} proved that every Lie derivation has this form for primitive rings of characteristic not $2$ with a nontrivial idempotent.
+Here an \emph{idempotent} is an element $e$ with $e^2 = e$, and it is \emph{nontrivial} if $e \neq 0$ and $e \neq 1$.
+Here $d$ may take values in a larger ring.
+
+The next result uses the \emph{standard polynomial} of degree $4$ \citep[\S1]{Amitsur1950},
+\[
+S_4(x_1, x_2, x_3, x_4) = \sum_{\varpi} \operatorname{sgn}(\varpi)\, x_{\varpi(1)} x_{\varpi(2)} x_{\varpi(3)} x_{\varpi(4)},
+\]
+where $\varpi$ runs over the permutations of $\{1,2,3,4\}$.
+We say that a ring \emph{satisfies $S_4$} if $S_4$ is zero for every choice of four elements of the ring.
+A prime ring satisfies $S_4$ exactly when it is commutative or is isomorphic to a subring of $M_2(F)$ for a field $F$ \citep[Lemma 1]{Bresar1993}.
+\citet[Theorem 5]{Bresar1993} proved the standard form for prime rings of characteristic different from $2$ that do not satisfy $S_4$.
+
+Triangular algebras are defined in Section~\ref{sec:preliminaries}.
+For them, \citet[Theorem 2.1]{ZhangYu2006} proved that every Jordan derivation of a triangular algebra is a derivation.
+For Lie derivations, \citet[Theorem 11]{Cheung2003} found conditions under which every Lie derivation has the standard form.
+\citet[\S3]{LiWei2015} extended this to more algebras.
+\citet[Theorem 3.1 and Corollary 3.1]{Wang2019} treated every triangular algebra, with no condition on the module or the centre. For these algebras a Lie derivation is a sum $\delta + \tau$, where $\delta$ is a derivation into a larger triangular algebra and $\tau$ is a linear map into its centre that vanishes on commutators.
+
+
+In this paper a Jordan derivation is a derivation of the symmetrized product $x \circ y$, and a Lie derivation is a derivation of the antisymmetrized product $[x,y]$. % claim-ok: states the point of view of this paper
+We follow this order.
+Section~\ref{sec:preliminaries} recalls the classical notions.
+Section~\ref{sec:symmetrized} defines the symmetrized product for an involution of $A \otimes A$, treats the identity and the swap, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
+Section~\ref{sec:base-change} shows that the dimension of the space of Jordan derivations is stable under extension of the base field.
+Section~\ref{sec:lie} treats the antisymmetrized product, full matrix algebras, and triangular algebras through the theorems of Martindale and Cheung.
+We place each example right after the result it illustrates.
+
+\section{Preliminaries}\label{sec:preliminaries}
+
+This section recalls the classical notions we need, and none of it is new.
+We treat five kinds of derivation and then triangular algebras.
+
+
+From now on, $A$ is a $K$-algebra with unit $1$.
+We write $[x,y] = xy - yx$ for the commutator, $x \circ y = xy + yx$ for the Jordan product, and $Z(A)$ for the centre.
+The centre is the set of elements $z$ with $zx = xz$ for all $x \in A$.
+We call an element $x$ \emph{nilpotent} if $x^n = 0$ for some $n \geq 1$.
+A commutative algebra is \emph{reduced} if its only nilpotent element is zero \citep[1.4.12]{ChambertLoir2021}.
+
+A derivation of an algebra is as defined by \citet[Part I]{Jacobson1937}: a linear map $D$ with $D(xy) = D(x)y + xD(y)$.
+Every derivation satisfies $D(1) = 0$, since $D(1) = D(1 \cdot 1) = 2D(1)$.
+For $g \in A$, the map $\operatorname{ad}_g(x) = [g,x]$ is an \emph{inner derivation}, called a principal derivation by \citet[\S9.2]{Weibel1994}.
+We write $\Der(A)$ and $\Inn(A)$ for these two spaces.
+
+We add a word on the characteristic for Jordan derivations.
+A \emph{Jordan derivation} in the sense of \citet[p.~1104]{Herstein1957} is an additive map with $D(x^2) = D(x)x + xD(x)$.
+We write $\JDer(A)$ for the space of linear maps with $D(x \circ y) = D(x) \circ y + x \circ D(y)$ for all $x, y$.
+Replacing $x$ by $x + y$ gives the condition $D(x \circ y) = D(x) \circ y + x \circ D(y)$ in every characteristic.
+Setting $y = x$ in this condition gives $2D(x^2) = 2(D(x)x + xD(x))$.
+So the two conditions agree when $2$ is invertible in $K$, and we use the $\circ$ form throughout.
+When $\operatorname{char} K = 2$ and $A$ is commutative, $x \circ y = 0$, and every linear map satisfies the $\circ$ condition.
+
+We need two more kinds.
+A \emph{Lie derivation} satisfies $D([x,y]) = [D(x), y] + [x, D(y)]$ \citep[p.~183]{Martindale1964}, and we write $\LDer(A)$ for this space.
+When $A$ is commutative, every bracket is zero, so every linear map is a Lie derivation.
+
+We now compare these spaces.
+When $2$ is invertible, $xy = \tfrac12 (x \circ y) + \tfrac12 [x,y]$.
+A derivation respects $xy$, so it respects both halves, and $\Der(A) \subseteq \JDer(A) \cap \LDer(A)$.
+Both inclusions can be strict, as Examples~\ref{ex:dual-numbers} and~\ref{ex:matrix} show.
+Our examples include triangular algebras.
+An \emph{$(A,B)$-bimodule} is a left $A$-module and right $B$-module $M$ with $(am)b = a(mb)$ for all $a \in A$, $m \in M$ and $b \in B$ \citep[Example 1.14]{Lam2001}.
+We call it \emph{unital} if $1m = m = m1$ for all $m \in M$.
+
+Let $R$ be a commutative ring, let $A$ and $B$ be unital $R$-algebras, and let $M$ be a unital $(A,B)$-bimodule.
+The \emph{triangular algebra} $T = \mathrm{Tri}(A,M,B)$ is the set of matrices $\left(\begin{smallmatrix} a & m \\ 0 & b \end{smallmatrix}\right)$ with the matrix sum and product \citep[\S2]{Cheung2003}.
+The module $M$ is \emph{faithful} as a left $A$-module if $aM = 0$ implies $a = 0$, and as a right $B$-module if $Mb = 0$ implies $b = 0$.
+The idempotents $e_1 = \left(\begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix}\right)$ and $e_2 = \left(\begin{smallmatrix} 0 & 0 \\ 0 & 1 \end{smallmatrix}\right)$ satisfy $e_2 T e_1 = 0$.
+So $T$ is not prime, since $e_1 \neq 0$ and $e_2 \neq 0$, and the prime-ring results above do not apply to triangular algebras.
+
+
+\section{The symmetrized product}\label{sec:symmetrized}
+
+This section defines the symmetrized product for an involution of $A \otimes A$ and identifies the derivations for the identity and the swap.
+
+Let $A$ be a $K$-algebra with product $\mu$.
+Let $\sigma \colon A \otimes A \to A \otimes A$ be a $K$-linear map with $\sigma^2 = \mathrm{id}$, for instance the swap $\tau(x \otimes y) = y \otimes x$.
+It gives a symmetrized product
+\[
+x \cdot_\sigma y = \mu(x \otimes y) + \mu(\sigma(x \otimes y)).
+\]
+For $\sigma = \tau$ this is the Jordan product $x \circ y$.
+
+\begin{definition}\label{def:sigma-derivation} % ours: the notion of this paper
+A \emph{$\sigma$-symmetric derivation} for $\sigma$ is a $K$-linear map $D \colon A \to A$ with
+\begin{equation}\label{eq:sigma-leibniz}
+D(x \cdot_\sigma y) = D(x) \cdot_\sigma y + x \cdot_\sigma D(y) \quad \text{for all } x, y \in A.
+\end{equation}
+We write $\SDer_\sigma(A)$ for the set of $\sigma$-symmetric derivations for $\sigma$.
+This set is a $K$-subspace of $\mathrm{End}_K(A)$, since the condition is linear in $D$.
+\end{definition}
+
+The next remark records what Definition~\ref{def:sigma-derivation} says for the two involutions that use no structure of $A$.
+
+\begin{remark}\label{rem:sigma-derivation-classification}
+Let $A$ be a $K$-algebra and let $\sigma$ be an involution of $A \otimes A$.
+Identity~\eqref{eq:sigma-leibniz} for $\sigma$ is the Leibniz rule for the product $\cdot_\sigma$.
+So $\SDer_\sigma(A)$ is the set of derivations of the nonassociative algebra $(A, \cdot_\sigma)$, in the sense of \citet[Part I]{Jacobson1937}.
+
+For the identity, $x \cdot_{\mathrm{id}} y = 2xy$, so the identity reads
+\[
+2D(xy) = 2\bigl(D(x)y + xD(y)\bigr).
+\]
+If $\operatorname{char} K \neq 2$, we divide by $2$ and get $\SDer_{\mathrm{id}}(A) = \Der(A)$.
+If $\operatorname{char} K = 2$, then $x \cdot_{\mathrm{id}} y = 0$, so $\SDer_{\mathrm{id}}(A)$ contains every linear map.
+So it is larger than $\Der(A)$.
+For example, take the linear map with $D(1) = 1$ and $D = 0$ on a complement of $K1$.
+Then $D$ is not a derivation, since a derivation satisfies $D(1) = D(1 \cdot 1) = 2D(1) = 0$ in characteristic $2$.
+
+For the swap $\tau$ we get $x \cdot_\tau y = xy + yx = x \circ y$.
+So the defining identity is the $\circ$ form of the Jordan identity from Section~\ref{sec:preliminaries}.
+Hence $\SDer_\tau(A) = \JDer(A)$ in every characteristic.
+
+Every derivation is a Jordan derivation \citep[p.~1003]{Bresar1988}.
+So in every characteristic
+\[
+\Der(A) \subseteq \SDer_\tau(A) = \JDer(A).
+\]
+When $\operatorname{char} K \neq 2$, this gives $\SDer_{\mathrm{id}}(A) \subseteq \SDer_\tau(A)$.
+This is an inclusion between the spaces of two involutions on one algebra. % claim-ok: names the inclusion displayed just above
+\end{remark}
+
+The smallest nonreduced algebra shows both inclusions of Section~\ref{sec:preliminaries} at work.
+
+\begin{example}[Dual numbers]\label{ex:dual-numbers}
+Let $A = K[\varepsilon]/(\varepsilon^2)$, with basis $\{1, \varepsilon\}$.
+A linear map $D$ is a derivation exactly when the Leibniz rule holds on the four pairs of basis elements.
+Since $D(1) = 0$, the pairs $(1,\varepsilon)$ and $(\varepsilon,1)$ hold.
+Write $D(\varepsilon) = \beta + c\varepsilon$ with $\beta, c \in K$.
+The pair $(\varepsilon,\varepsilon)$ gives $0 = D(\varepsilon^2) = 2\varepsilon D(\varepsilon) = 2\beta\varepsilon$.
+If $\operatorname{char} K \neq 2$, then $\beta = 0$, and every derivation has the form $D(a + b\varepsilon) = bc\varepsilon$, so $\dim_K \Der(A) = 1$.
+If $\operatorname{char} K = 2$, then $\beta$ is free, and $\dim_K \Der(A) = 2$.
+Since $A$ is commutative, every commutator is zero, so $\LDer(A) = \mathrm{End}_K(A)$, which has dimension $2 \cdot 2 = 4$.
+Each derivation lies in $\SDer_\tau(A)$ by Remark~\ref{rem:sigma-derivation-classification}.
+If $\operatorname{char} K = 2$, then $x \circ y = 2xy = 0$ for all $x, y$, so $\JDer(A) = \mathrm{End}_K(A)$ has dimension $4$, which exceeds $\dim_K \Der(A) = 2$.
+\end{example}
+
+The remark above and the following theorem on triangular algebras give a corollary. % claim-ok: signpost to the corollary proved right after
+
+\begin{theorem}[{\citep[Theorem 2.1]{ZhangYu2006}}]\label{thm:zhang-yu}
+Let $R$ be a $2$-torsion free commutative ring, let $A$ and $B$ be unital $R$-algebras, and let $M$ be a unital $(A,B)$-bimodule that is faithful as a left $A$-module and as a right $B$-module. Then every Jordan derivation $D \colon \mathrm{Tri}(A,M,B) \to \mathrm{Tri}(A,M,B)$ is a derivation.
+\end{theorem}
+
+In the next corollary, maps on $T = \mathrm{Tri}(A,M,B)$ are $R$-linear and the $\sigma$-symmetric identity is read over $R$.
+It follows from Remark~\ref{rem:sigma-derivation-classification} and Theorem~\ref{thm:zhang-yu}.
+
+\begin{corollary}\label{cor:triangular-jordan} % ours: follows from the remark and the theorem of Zhang and Yu stated above
+Let $R$ be a $2$-torsion free commutative ring, let $A$ and $B$ be unital $R$-algebras, and let $M$ be a unital $(A,B)$-bimodule that is faithful as a left $A$-module and as a right $B$-module.
+Suppose also that $\mathrm{Tri}(A,M,B)$ is $2$-torsion free.
+Then $\SDer_\tau(\mathrm{Tri}(A,M,B)) = \Der(\mathrm{Tri}(A,M,B))$.
+\end{corollary}
+
+\section{Extension of the base field}\label{sec:base-change}
+
+Proposition~\ref{prop:base-change} below treats extension of the base field.
+For a field extension $L$ of $K$ and a $K$-vector space $V$, write $V_L = L \otimes_K V$.
+This is an $L$-vector space. % claim-ok: the tensor product of a $K$-vector space with $L$ over $K$ is an $L$-vector space by construction
+For a $K$-algebra $A$, the space $A_L$ is an $L$-algebra with $(c \otimes x)(c' \otimes y) = cc' \otimes xy$ \citep[Chapter 2, \S5, p.~74]{Lam2001}.
+
+We now define the involution $\sigma_L$ of $A_L \otimes_L A_L$.
+It is an $L$-linear map of $A_L \otimes_L A_L$ into itself with $\sigma_L^2 = \mathrm{id}$.
+
+Define
+\[
+\Psi \colon A_L \otimes_L A_L \to L \otimes_K (A \otimes_K A), \qquad
+(c \otimes x) \otimes_L (c' \otimes y) \longmapsto cc' \otimes (x \otimes y).
+\]
+Since this assignment is $L$-bilinear, it defines an $L$-linear map.
+It is an isomorphism, because its inverse sends $c \otimes (x \otimes y)$ to $(c \otimes x) \otimes_L (1 \otimes y)$.
+
+The map $\mathrm{id}_L \otimes \sigma$ is an $L$-linear map of $L \otimes_K (A \otimes_K A)$ into itself, and $(\mathrm{id}_L \otimes \sigma)^2 = \mathrm{id}_L \otimes \sigma^2 = \mathrm{id}$.
+We define $\sigma_L$ as the conjugate of $\mathrm{id}_L \otimes \sigma$ by $\Psi$:
+\[
+\sigma_L = \Psi^{-1} \circ (\mathrm{id}_L \otimes \sigma) \circ \Psi.
+\]
+For $c, c' \in L$ and $x, y \in A$ it reads
+\[
+\sigma_L\bigl((c \otimes x) \otimes_L (c' \otimes y)\bigr) = \Psi^{-1}\bigl(cc' \otimes \sigma(x \otimes y)\bigr).
+\]
+
+Since $\Psi \Psi^{-1} = \mathrm{id}$, we get
+\[
+\sigma_L^2 = \Psi^{-1} (\mathrm{id}_L \otimes \sigma)(\mathrm{id}_L \otimes \sigma) \Psi = \Psi^{-1} (\mathrm{id}_L \otimes \sigma^2) \Psi = \mathrm{id}.
+\]
+So $\sigma_L$ is an involution of $A_L \otimes_L A_L$.
+
+The product $\mu_L$ of $A_L$ satisfies $\mu_L = (\mathrm{id}_L \otimes \mu) \circ \Psi$.
+So $\Psi$ carries $\mu_L$ and $\sigma_L$ to $\mathrm{id}_L \otimes \mu$ and $\mathrm{id}_L \otimes \sigma$.
+Hence $(1 \otimes x) \cdot_{\sigma_L} (1 \otimes y) = 1 \otimes (x \cdot_\sigma y)$ for $x, y \in A$.
+Thus the product $\cdot_{\sigma_L}$ on $A_L$ extends the product $\cdot_\sigma$ on $A$.
+
+Proposition~\ref{prop:base-change} below says that extending the base field does not change the dimension of the space of $\sigma$-symmetric derivations. The proof compares spaces of linear maps over $K$ and over $L$, and uses results from the recent literature, which we recall. % claim-ok: signpost for the cited results below
+For a $K$-vector space $E$ we write $E_L = L \otimes_K E$, and for a $K$-linear map $f$ we write $f_L = \mathrm{id}_L \otimes f$.
+
+Let $L$ be an extension field of $K$, and let $(c_i)_{i \in I}$ be a basis of $L$ over $K$.
+For a $K$-linear map $f \colon E \to F$, every element of $E_L$ is a unique sum $\sum_i c_i \otimes e_i$ with $e_i \in E$, and $f_L(\sum_i c_i \otimes e_i) = \sum_i c_i \otimes f(e_i)$.
+So $f_L$ kills the element exactly when every $f(e_i)$ is zero, and $\ker(f_L) = (\ker f)_L$.
+% claim-ok: direct computation on a basis of L over K
+
+The next two results compare linear maps over $K$ and over $L$, which is the comparison that Proposition~\ref{prop:base-change} needs to transfer the equation $\Phi(D) = 0$ from $A$ to $A_L$. % claim-ok: signpost for the lemmas below
+
+\begin{lemma}[{\cite[Lemma 4.86]{Rotman2009}}]\label{lem:rotman-486}
+Let $B$ be a flat $R$-module, and let $N$ be a finitely presented $R$-module.
+For every $R$-module $M$, there is a natural isomorphism
+\[
+\psi \colon B \otimes_R \mathrm{Hom}_R(N, M) \to \mathrm{Hom}_R(N, M \otimes_R B),
+\]
+given by $b \otimes g \mapsto g_b$, where $g_b(n) = g(n) \otimes b$ for all $n \in N$.
+\end{lemma}
+
+The next lemma identifies homomorphisms over $R$ with homomorphisms over $A$ after extension of scalars. % claim-ok: signpost for the lemma stated right after
+
+\begin{lemma}[{\cite[Lemma 4.85]{Rotman2009}}]\label{lem:rotman-485}
+Let $A$ be an $R$-algebra, and let $N$ be a finitely presented $R$-module.
+For every $A$-module $M$, there is a natural isomorphism
+\[
+\theta \colon \mathrm{Hom}_R(N, M) \to \mathrm{Hom}_A(N \otimes_R A, M),
+\]
+given by $\theta \colon f \mapsto \tilde f$, where $\tilde f(n \otimes 1) = f(n)$ for all $n \in N$.
+\end{lemma}
+
+Let $V$ be a finite-dimensional $K$-vector space and let $W$ be a $K$-vector space.
+Then $V$ is finitely presented over $K$, by a finite basis. % claim-ok: a finite basis gives a presentation
+Lemma~\ref{lem:rotman-486} with $R = K$, $B = L$, $N = V$ and $M = W$ gives $L \otimes_K \mathrm{Hom}_K(V, W) \cong \mathrm{Hom}_K(V, W_L)$.
+Lemma~\ref{lem:rotman-485} with $R = K$, $A = L$, $N = V$ and $M = W_L$ gives $\mathrm{Hom}_K(V, W_L) \cong \mathrm{Hom}_L(V_L, W_L)$.
+The composite sends $c \otimes u$ to $c\,(\mathrm{id}_L \otimes u)$. % claim-ok: the two maps of the lemmas written on the generators
+So $L \otimes_K \mathrm{Hom}_K(V, W) \to \mathrm{Hom}_L(V_L, W_L)$ is bijective, which identifies $L \otimes_K \mathrm{End}_K(A)$ with $\mathrm{End}_L(A_L)$ in Proposition~\ref{prop:base-change}. % claim-ok: conclusion of the two lines above
+
+For a $K$-algebra $A$ with involution $\sigma$ of $A \otimes A$, let $m_\sigma \colon A \otimes A \to A$ be the product $x \otimes y \mapsto x \cdot_\sigma y$.
+Define the $K$-linear map
+\[
+\Phi \colon \mathrm{End}_K(A) \to \mathrm{Hom}_K(A \otimes A, A), \qquad
+\Phi(D) = D \circ m_\sigma - m_\sigma \circ (D \otimes \mathrm{id} + \mathrm{id} \otimes D).
+\]
+So $\Phi(D)$ is the difference of the two sides of identity~\eqref{eq:sigma-leibniz}, and $\SDer_\sigma(A) = \ker \Phi$.
+Write $\Phi_L$ for the same map for $A_L$ and $\sigma_L$, so $\SDer_{\sigma_L}(A_L) = \ker \Phi_L$.
+
+\begin{proposition}\label{prop:base-change}
+Let $K$ be a field, let $A$ be a finite-dimensional $K$-algebra, and let $\sigma$ be an involution of $A \otimes A$.
+Let $L$ be a field extension of $K$.
+For $D \in \mathrm{End}_K(A)$ and $c \in L$, let $c \otimes D$ act on $A_L$ by $(c \otimes D)(c' \otimes x) = cc' \otimes D(x)$ for $c' \in L$ and $x \in A$.
+This rule defines isomorphisms of $L$-vector spaces
+\[
+\beta \colon L \otimes_K \mathrm{End}_K(A) \to \mathrm{End}_L(A_L), \qquad
+\gamma \colon L \otimes_K \mathrm{Hom}_K(A \otimes A, A) \to \mathrm{Hom}_L(A_L \otimes_L A_L, A_L)
+\]
+with $\Phi_L \circ \beta = \gamma \circ (\mathrm{id}_L \otimes \Phi)$.
+So $\beta$ and $\gamma$ carry the exact sequence
+\[
+0 \to L \otimes_K \SDer_\sigma(A) \to L \otimes_K \mathrm{End}_K(A) \xrightarrow{\ \mathrm{id}_L \otimes \Phi\ } L \otimes_K \mathrm{Hom}_K(A \otimes A, A)
+\]
+isomorphically onto the exact sequence
+\[
+0 \to \SDer_{\sigma_L}(A_L) \to \mathrm{End}_L(A_L) \xrightarrow{\ \Phi_L\ } \mathrm{Hom}_L(A_L \otimes_L A_L, A_L).
+\]
+In particular $L \otimes_K \SDer_\sigma(A) \cong \SDer_{\sigma_L}(A_L)$ and $\dim_L \SDer_{\sigma_L}(A_L) = \dim_K \SDer_\sigma(A)$.
+\end{proposition}
+
+\begin{proof}
+First, the spaces $A$ and $A \otimes_K A$ are finite-dimensional.
+So $\beta$ is an isomorphism by the bijection above with $V = W = A$.
+Also $\gamma$ is an isomorphism by the bijection above with $V = A \otimes_K A$ and $W = A$, since $(A \otimes_K A)_L = A_L \otimes_L A_L$.
+
+Second, we check $\Phi_L \circ \beta = \gamma \circ (\mathrm{id}_L \otimes \Phi)$.
+Both sides are $L$-linear.
+So it is enough to evaluate them on $c \otimes D$ and on $(c' \otimes x) \otimes_L (c'' \otimes y)$, for $c, c', c'' \in L$, $D \in \mathrm{End}_K(A)$ and $x, y \in A$.
+By the construction of $\sigma_L$, we have $m_{\sigma_L}\bigl((c' \otimes x) \otimes_L (c'' \otimes y)\bigr) = c'c'' \otimes m_\sigma(x \otimes y)$.
+Hence both sides give
+\[
+cc'c'' \otimes \Bigl(D\bigl(m_\sigma(x \otimes y)\bigr) - m_\sigma\bigl(D(x) \otimes y + x \otimes D(y)\bigr)\Bigr) = cc'c'' \otimes \Phi(D)(x \otimes y).
+\]
+
+Third, $\ker \Phi = \SDer_\sigma(A)$.
+Since $L \otimes_K -$ is exact, $\ker(\mathrm{id}_L \otimes \Phi) = L \otimes_K \SDer_\sigma(A)$.
+By the second step, $\beta$ and $\gamma$ turn $\mathrm{id}_L \otimes \Phi$ into $\Phi_L$.
+So $\beta$ maps $L \otimes_K \SDer_\sigma(A)$ onto $\ker \Phi_L = \SDer_{\sigma_L}(A_L)$.
+\end{proof}
+
+
+The next remark shows that the finite-dimensional hypothesis of Proposition~\ref{prop:base-change} is needed.
+
+\begin{remark}\label{rem:finite-needed}
+The finite-dimensional hypothesis in Proposition~\ref{prop:base-change} cannot be dropped.
+Take $\sigma = -\mathrm{id}$.
+Then $\sigma^2 = \mathrm{id}$, so $\sigma$ is an involution of $A \otimes A$, and $x \cdot_\sigma y = 0$ for all $x, y$.
+So every $K$-linear map is a $\sigma$-symmetric derivation, both for $A$ and for $A_L$.
+
+Let $A = K[x]$ and $L = K(t)$, where $t$ is transcendental over $K$.
+Define $D' \in \mathrm{End}_L(A_L)$ by $D'(x^i) = t^i x^i$ for all $i \geq 0$.
+Suppose $D' = \sum_{r=1}^s c_r \otimes D_r$ for some $s \geq 1$, with $c_r \in L$ and $D_r \in \mathrm{End}_K(A)$.
+Since $D_r$ is $K$-linear and $A = K[x]$, the coefficient of $x^i$ in $D_r(x^i)$ lies in $K$.
+So $t^i$ lies in the $K$-span of $c_1, \dots, c_s$, for every $i$.
+Since $t$ is transcendental over $K$, the powers $1, t, t^2, \dots$ are linearly independent over $K$, so no finite span contains them all.
+Hence $D'$ is not in the image, and the map of Proposition~\ref{prop:base-change} is not onto.
+\end{remark}
+
+The next corollary applies the proposition to the space of Jordan derivations. % claim-ok: signpost for the result stated right after
+
+\begin{corollary}\label{cor:jder-base}
+Let $K$ be a field, let $A$ be a finite-dimensional $K$-algebra, and let $L$ be a field extension of $K$.
+Then $\dim_L \JDer(A_L) = \dim_K \JDer(A)$.
+\end{corollary}
+
+\begin{proof}
+For the swap $\tau$ of $A \otimes A$, the involution $\tau_L$ is the swap of $A_L \otimes_L A_L$, since $\tau_L((c \otimes x) \otimes_L (c' \otimes y)) = \Psi^{-1}(cc' \otimes (y \otimes x)) = (c' \otimes y) \otimes_L (c \otimes x)$.
+By Remark~\ref{rem:sigma-derivation-classification}, $\SDer_\tau(A) = \JDer(A)$ and $\SDer_{\tau_L}(A_L) = \JDer(A_L)$.
+Proposition~\ref{prop:base-change} gives the equality of dimensions.
+\end{proof}
+
+\section{The antisymmetrized product and Lie derivations}\label{sec:lie}
+
+This section replaces the sum $\mu + \mu \circ \sigma$ by the difference $\mu - \mu \circ \sigma$.
+For the swap the difference is the commutator, and its derivations are the Lie derivations.
+
+\begin{definition}\label{def:anti-sigma-derivation} % ours: the antisymmetrized counterpart of the notion of this paper
+The \emph{$\sigma$-antisymmetrized product} on a $K$-algebra $A$ is $x \cdot_\sigma^- y = \mu(x \otimes y) - \mu(\sigma(x \otimes y))$, where $\sigma$ is an involution of $A \otimes A$.
+A \emph{$\sigma$-antisymmetric derivation} is a $K$-linear map $D \colon A \to A$ with $D(x \cdot_\sigma^- y) = D(x) \cdot_\sigma^- y + x \cdot_\sigma^- D(y)$.
+\end{definition}
+
+We now identify these derivations for the swap.
+It also gives the easy half of the theorems of Martindale and Bre\v{s}ar.
+
+\begin{proposition}\label{prop:lie-classification}
+Let $A$ be an associative $K$-algebra.
+\begin{enumerate}[label=(\roman*)]
+\item The $\sigma$-antisymmetric derivations for $\tau$ in the sense of Definition~\ref{def:anti-sigma-derivation} are exactly the Lie derivations of $A$.
+\item $\Der(A) \subseteq \LDer(A)$.
+\item Let $d \in \Der(A)$, and let $t \colon A \to Z(A)$ be linear with $t([x,y]) = 0$ for all $x, y$. Then $d + t \in \LDer(A)$.
+\item In (iii), if $t(1) \neq 0$, then $d + t \notin \Der(A)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+We check the four parts in order.
+(i) For the swap, $x \cdot_\tau^- y = [x,y]$, so the two identities are the same.
+(ii) For $D \in \Der(A)$, $D([x,y]) = D(x)y + xD(y) - D(y)x - yD(x) = [D(x), y] + [x, D(y)]$.
+(iii) By (ii), $d([x,y]) = [d(x),y] + [x,d(y)]$, and $t([x,y]) = 0$.
+Since $t(x)$ and $t(y)$ are central, $[t(x), y] = 0 = [x, t(y)]$.
+Adding gives the Lie derivation identity for $d + t$.
+(iv) Every derivation vanishes at $1$, as recalled in Section~\ref{sec:preliminaries}, while $(d+t)(1) = t(1) \neq 0$.
+\end{proof}
+
+So inner derivations lie in both spaces.
+Each $\operatorname{ad}_g$ is a Lie derivation by Proposition~\ref{prop:lie-classification}(ii), and a Jordan derivation by Remark~\ref{rem:sigma-derivation-classification}.
+Full matrix algebras show that part (iii) gives maps outside $\Der(A)$.
+We use one result on Jordan derivations of matrix rings.
+It is stated for a unital associative ring and a $2$-torsion free bimodule \citep[\S2]{Alizadeh2009}.
+
+\begin{theorem}[{\citep[Theorem 3.1]{Alizadeh2009}}]\label{thm:alizadeh}
+Let $A$ be a unital associative ring, let $M$ be a $2$-torsion free $A$-bimodule, and let $n \geq 2$. Then every Jordan derivation $D \colon M_n(A) \to M_n(M)$ is a derivation.
+\end{theorem}
+
+We also use a description of the first Hochschild cohomology.
+It gives $HH^1$ of the matrix algebra in Example~\ref{ex:matrix}.
+Let $R$ be a $k$-algebra and $M$ an $R$-bimodule.
+\citet[\S9.2]{Weibel1994} writes $\mathrm{Der}_k(R,M)$ for the $k$-derivations.
+Weibel writes $\mathrm{PDer}_k(R,M)$ for the principal ones $f_m(r) = rm - mr$.
+
+\begin{lemma}[{\citep[Lemma 9.2.1]{Weibel1994}}]\label{lem:weibel}
+Let $R$ be a $k$-algebra and $M$ an $R$-bimodule. Then $HH^1(R, M) \cong \mathrm{Der}_k(R,M)/\mathrm{PDer}_k(R,M)$.
+\end{lemma}
+
+A nonzero ring $R$ is \emph{simple} if $(0)$ and $R$ are the only ideals in $R$, and a commutative ring is simple if and only if it is a field \citep[\S1]{Lam2001}.
+
+The next theorem shows that $M_n(K)$ is simple.
+Example~\ref{ex:matrix} needs this twice: to apply the theorem of Martindale, and to see that $M_n(K)$ is separable.
+
+\begin{theorem}[{\citep[Theorem 3.1]{Lam2001}}]\label{thm:lam-matrix}
+Let $R$ be a ring and $M_n(R)$ be the ring of $n \times n$ matrices over $R$. Then any ideal $I$ of $M_n(R)$ has the form $M_n(\mathfrak{m})$ for a uniquely determined ideal $\mathfrak{m}$ of $R$. In particular, if $R$ is a simple ring, so is $M_n(R)$.
+\end{theorem}
+
+The next theorem of Martindale describes the Lie derivations of primitive rings with a nontrivial idempotent. % claim-ok: signpost for the result stated right after
+
+\begin{theorem}[{\citep[Theorem 2]{Martindale1964}}]\label{thm:martindale}
+Let $D$ be a Lie derivation of a primitive ring $R$ into itself, where $R$ contains a nontrivial idempotent and the characteristic of $R$ is not $2$. Then $D$ is of the form $d + t$, where $d$ is an ordinary derivation of $R$ into a primitive ring $\hat{R}$ containing $R$ and $t$ is an additive mapping of $R$ into the center of $\hat{R}$ that maps commutators into zero.
+\end{theorem}
+
+Martindale remarks after Theorem~\ref{thm:martindale} that, if $R$ is simple, then $d$ maps $R$ into itself and $t$ maps $R$ into the center of $R$ \citep[p.~187]{Martindale1964}.
+
+\begin{definition}[{\citep[Section 9.2.1]{Weibel1994}}]\label{def:separable}
+A finite-dimensional semisimple algebra $R$ over a field $k$ is called \emph{separable} if for every extension field $\ell$ of $k$ the $\ell$-algebra $R_\ell = R \otimes_k \ell$ is semisimple.
+\end{definition}
+
+The next theorem of Weibel characterizes separable algebras by the vanishing of Hochschild cohomology. % claim-ok: signpost for the result stated right after
+
+\begin{theorem}[{\citep[Theorem 9.2.11]{Weibel1994}}]\label{thm:hochschild}
+Let $R$ be an algebra over a field $k$.
+The following are equivalent:
+\begin{enumerate}
+\item $R$ is a finite-dimensional separable $k$-algebra.
+\item $R$ is projective as a left $R^e$-module.
+\item $H_*(R, M) = 0$ for all $* \neq 0$ and all bimodules $M$.
+\item $H^*(R, M) = 0$ for all $* \neq 0$ and all bimodules $M$.
+\end{enumerate}
+Here $R^e = R \otimes_k R^{\mathrm{op}}$, and $H_*$ and $H^*$ are Hochschild homology and cohomology.
+\end{theorem}
+
+We now apply Theorems~\ref{thm:alizadeh}, \ref{thm:lam-matrix}, \ref{thm:martindale} and~\ref{thm:hochschild} to $M_n(K)$.
+
+\begin{example}[Full matrix algebras]\label{ex:matrix}
+Let $A = M_n(K)$ with $n \geq 2$, and let $e_{ij}$ be the matrix unit with entry $1$ in position $(i,j)$ and $0$ elsewhere.
+If $\operatorname{char} K \neq 2$, every Jordan derivation of $M_n(K)$ is a derivation by Theorem~\ref{thm:alizadeh} applied to the ring $K$ and the $K$-bimodule $K$, since $K$ is then $2$-torsion free.
+So $\SDer_\tau(A) = \JDer(A) = \Der(A)$ in that case.
+
+Let $\theta(x) = \operatorname{tr}(x) I$.
+Its values are central, and $\theta([x,y]) = (\operatorname{tr}(xy) - \operatorname{tr}(yx)) I = 0$.
+By Proposition~\ref{prop:lie-classification}(iii), $\operatorname{ad}_g + c\,\theta$ is a Lie derivation for every $g \in A$ and $c \in K$.
+Since $\theta(e_{11}) = I$ while $\theta(e_{11})e_{11} + e_{11}\theta(e_{11}) = 2e_{11}$ and $\theta(e_{11}^2) = \theta(e_{11})$, the map $\theta$ is not a derivation in any characteristic.
+
+Now let $n \geq 2$ and $\operatorname{char} K \neq 2$.
+The ring $M_n(K)$ is simple by Theorem~\ref{thm:lam-matrix}, since a field is simple.
+It is primitive, because $K^n$ is a faithful simple left module over it, and $e_{11}$ is a nontrivial idempotent.
+By Theorem~\ref{thm:martindale} and the remark after it, every Lie derivation $D$ of $M_n(K)$ has the form $D = d + t$, where $d$ is an additive derivation of $M_n(K)$ into itself and $t$ is an additive map into $K \cdot I$ that vanishes on commutators.
+
+The maps $d$ and $t$ are $K$-linear.
+Indeed, for $\lambda \in K$ we have $d(\lambda x) = d(\lambda I)x + \lambda d(x)$, and $d(\lambda I)$ is central because $[d(\lambda I), x] = d([\lambda I, x]) - [\lambda I, d(x)] = 0$.
+So $d(\lambda I) = \nu(\lambda) I$ for some $\nu(\lambda) \in K$.
+Since $D$ is $K$-linear, $\nu(\lambda)x = \lambda t(x) - t(\lambda x)$ lies in $K \cdot I$ for every $x$.
+Taking $x = e_{11}$ gives $\nu(\lambda) = 0$.
+
+Next, $M_n(K)$ is finite-dimensional, and $M_n(K) \otimes_K F = M_n(F)$ is simple for every extension field $F$ by Theorem~\ref{thm:lam-matrix}, hence semisimple. % claim-ok: a finite-dimensional simple algebra is semisimple
+So $M_n(K)$ is separable by Definition~\ref{def:separable}.
+By Theorem~\ref{thm:hochschild}, $H^1(M_n(K), M_n(K)) = 0$, so by Lemma~\ref{lem:weibel} every $K$-linear derivation is inner, and $d$ is inner.
+Hence $\Der(A) = \Inn(A)$, and every Lie derivation of $A$ has the form $\operatorname{ad}_g + t$ with $t \colon A \to K \cdot I$ linear and $t([A,A]) = 0$.
+Such a map $t$ is the same as a $K$-linear map $A/[A,A] \to K$, and $A/[A,A] = HH_0(A,A)$ \citep[\S9.1]{Weibel1994}.
+A map $t$ of this kind that is also a derivation is zero.
+Indeed $t(e_{ii}) = t(e_{ii}^2) = 2t(e_{ii})e_{ii}$ forces $t(e_{ii}) = 0$ when $n \geq 2$, and $t(e_{ij}) = 0$ for $i \neq j$ because $e_{ij} = [e_{ii}, e_{ij}]$.
+So $t$ is determined by $\operatorname{ad}_g + t$: if $\operatorname{ad}_g + t = \operatorname{ad}_h + t'$, then $t - t' = \operatorname{ad}_{h-g}$ is such a derivation, hence zero.
+Let $\omega \colon \LDer(A) \to \mathrm{Hom}_K(HH_0(A,A), K)$ send $\operatorname{ad}_g + t$ to $t$.
+The map $\omega$ is surjective, since each $t$ is a Lie derivation by Proposition~\ref{prop:lie-classification}(iii), and its kernel is $\Inn(A) = \Der(A)$.
+So the sequence
+\[
+0 \to \Der(A) \to \LDer(A) \xrightarrow{\ \omega\ } \mathrm{Hom}_K\bigl(HH_0(A,A), K\bigr) \to 0
+\]
+is exact.
+The map $\theta$ above is one element of the right-hand space.
+\end{example}
+
+The swap gives $\JDer(A)$ through $\mu + \mu \circ \tau$ and $\LDer(A)$ through $\mu - \mu \circ \tau$.
+So $\mu$ is half the sum of these two products when $2$ is invertible.
+So when $2$ is invertible, a map that is both a Jordan and a Lie derivation is a derivation.
+On $M_n(K)$ with $\operatorname{char} K \neq 2$ this gives $\JDer(A) \cap \LDer(A) = \Der(A)$ even though $\LDer(A)$ is larger.
+
+For triangular algebras the Lie side has a central term.
+
+A Lie derivation is \emph{proper} when it is the sum of a derivation and a linear map into the centre \citep[\S1]{Cheung2003}.
+The extra map vanishes on commutators, so a proper Lie derivation has the standard form of Section~\ref{sec:intro}.
+
+The next theorem uses the algebra $\mathfrak{A} = \mathrm{Tri}(A,M,B)$, and the projections $\pi_A$ and $\pi_B$ onto the diagonal blocks.
+
+The algebra $W(X)$ is the smallest subalgebra of $X$ that satisfies seven closure conditions of \citet[Proposition 10]{Cheung2003}.
+We list them for a subalgebra $V$ of $X$.
+Here $F$ is a polynomial in one variable over the base ring, and $F'$ is its derivative.
+\begin{enumerate}[label=(\roman*)]
+\item $V$ contains all commutators $[x, y]$ with $x, y \in X$.
+\item If $b \in X$ and $F'(b) = 0$, then $F(b) \in V$.
+\item If $b \in X$, $F(b) \in V$ and $F'(b)$ is invertible, then $b \in V$.
+\item $V$ contains all idempotents of $X$.
+\item $V$ contains all elements $x^p$, where $x \in X$ and $p \geq 0$ is the characteristic of $X$.
+\item If $a \in X$ has an inverse $a^{-1}$ in $X$ and $a^{-1} \in V$, then $a \in V$.
+\item If $b \in X$ is invertible and $b^k \in V$ for some positive integer $k$, then $kb \in V$.
+\end{enumerate}
+
+\begin{theorem}[{\citep[Theorem 11]{Cheung2003}}]\label{thm:cheung}
+Let $\mathfrak{A} = \mathrm{Tri}(A, M, B)$. If the following two conditions hold, then every Lie derivation of $\mathfrak{A}$ is proper.
+\begin{enumerate}[label=(\Roman*)]
+\item $M$ is a faithful left $A$-module and $Z(B) = \pi_B(Z(\mathfrak{A}))$; or $M$ is a faithful left $A$-module and $A = W(A)$; or every Lie derivation of $A$ is proper and $A = W(A)$.
+\item $M$ is a faithful right $B$-module and $Z(A) = \pi_A(Z(\mathfrak{A}))$; or $M$ is a faithful right $B$-module and $B = W(B)$; or every Lie derivation of $B$ is proper and $B = W(B)$.
+\end{enumerate}
+\end{theorem}
+
+\citet[\S3]{LiWei2015} give a necessary and sufficient condition for every Lie derivation of a generalized matrix algebra to be standard.
+Let $R$ be a commutative ring with identity. A Morita context \citep[\S2.1]{LiWei2015} consists of two $R$-algebras $A$ and $B$, two bimodules ${}_A M_B$ and ${}_B N_A$, and two bimodule homomorphisms called pairings, which make two diagrams commutative:
+\[
+M \otimes_B N \to A, \qquad N \otimes_A M \to B.
+\]
+A generalized matrix algebra is defined from a Morita context \citep[\S2.1]{LiWei2015}.
+The bimodule $N$ may be zero, and then the algebra is triangular \citep[\S2.1 and Corollary 3.6]{LiWei2015}.
+
+\begin{corollary}\label{cor:triangular-lie}
+Let $T = \mathrm{Tri}(A,M,B)$ satisfy conditions (I) and (II) of Theorem~\ref{thm:cheung}. Then every $\sigma$-antisymmetric derivation of $T$ for $\tau$ has the standard form $d + t$, and it is a derivation only if $t(1) = 0$.
+\end{corollary}
+
+\begin{proof}
+By Proposition~\ref{prop:lie-classification}(i), the maps in question are the Lie derivations of $T$, which are proper by Theorem~\ref{thm:cheung}. The last claim is Proposition~\ref{prop:lie-classification}(iv).
+\end{proof}
+
+Corollary~\ref{cor:triangular-jordan} says that on such a triangular algebra the symmetrized product gives only derivations.
+Example~\ref{ex:t2} shows that the antisymmetrized product can add a central term.
+Take $T_2(K) = \mathrm{Tri}(K,K,K)$ over a field with $\operatorname{char} K \neq 2$.
+Here $M = K$ is faithful on both sides.
+Also $Z(T_2(K)) = KI$ projects onto $K$.
+So Corollaries~\ref{cor:triangular-jordan} and~\ref{cor:triangular-lie} apply.
+
+\begin{example}[Upper triangular $2 \times 2$ matrices]\label{ex:t2}
+Let $T = T_2(\mathbb{F}_3)$.
+Every additive map $T \to T$ is $\mathbb{F}_3$-linear.
+So it is one of the $3^9$ maps given by a $3 \times 3$ matrix over $\mathbb{F}_3$.
+
+An exhaustive computer check over all of them confirms Corollaries~\ref{cor:triangular-jordan} and~\ref{cor:triangular-lie}.
+Every Jordan derivation is a derivation.
+Every Lie derivation equals $\operatorname{ad}_x + t$ for some $x \in T$ and some central-valued $t$ that vanishes on commutators.
+
+The term $t$ is needed.
+Define $\theta$ by
+\[
+\theta\begin{pmatrix} a & m \\ 0 & b \end{pmatrix} = aI.
+\]
+It has central values and vanishes on commutators, whose diagonal is zero.
+So it is a Lie derivation.
+It is not a derivation, since
+\[
+\theta(e_1^2) = I \qquad \text{while} \qquad \theta(e_1)e_1 + e_1 \theta(e_1) = 2e_1.
+\]
+So on $T_2(\mathbb{F}_3)$, as on $M_n(K)$, we have $\JDer = \Der$, while $\LDer$ is strictly larger.
+\end{example}
+
+\begin{thebibliography}{9}
+
+\bibitem[Alizadeh(2009)]{Alizadeh2009}
+Alizadeh, R.: Jordan derivations of full matrix algebras. Linear Algebra Appl. \textbf{430}, 574--578 (2009).
+
+\bibitem[Amitsur and Levitzki(1950)]{Amitsur1950}
+Amitsur, S.A., Levitzki, J.: Minimal identities for algebras. Proc. Amer. Math. Soc. \textbf{1}(4), 449--463 (1950).
+
+\bibitem[Bre\v{s}ar(1988)]{Bresar1988}
+Bre\v{s}ar, M.: Jordan derivations on semiprime rings. Proc. Amer. Math. Soc. \textbf{104}(4), 1003--1006 (1988).
+
+\bibitem[Bre\v{s}ar(1993)]{Bresar1993}
+Bre\v{s}ar, M.: Commuting traces of biadditive mappings, commutativity-preserving mappings and Lie mappings. Trans. Amer. Math. Soc. \textbf{335}(2), 525--546 (1993).
+
+\bibitem[Chambert-Loir(2021)]{ChambertLoir2021}
+Chambert-Loir, A.: (Mostly) Commutative Algebra. Universitext. Springer, Cham (2021).
+
+\bibitem[Cheung(2003)]{Cheung2003}
+Cheung, W.-S.: Lie derivations of triangular algebras. Linear Multilinear Algebra \textbf{51}(3), 299--310 (2003).
+
+\bibitem[Cusack(1975)]{Cusack1975}
+Cusack, J.M.: Jordan derivations on rings. Proc. Amer. Math. Soc. \textbf{53}(2), 321--324 (1975).
+
+\bibitem[Herstein(1957)]{Herstein1957}
+Herstein, I.N.: Jordan derivations of prime rings. Proc. Amer. Math. Soc. \textbf{8}(6), 1104--1110 (1957).
+
+\bibitem[Hochschild(1945)]{Hochschild1945}
+Hochschild, G.: On the cohomology groups of an associative algebra. Ann. of Math. \textbf{46}(1), 58--67 (1945).
+
+\bibitem[Jacobson(1937)]{Jacobson1937}
+Jacobson, N.: Abstract derivation and Lie algebras. Trans. Amer. Math. Soc. \textbf{42}(2), 206--224 (1937).
+
+\bibitem[Li and Wei(2015)]{LiWei2015}
+Li, Y.-B., Wei, F.: Lie derivations of dual extensions of algebras. Colloq. Math. \textbf{141}(1), 65--82 (2015). arXiv:1303.0831.
+
+\bibitem[Lam(2001)]{Lam2001}
+Lam, T.Y.: A First Course in Noncommutative Rings, 2nd edn. Graduate Texts in Mathematics 131. Springer, New York (2001).
+
+\bibitem[Martindale(1964)]{Martindale1964}
+Martindale, W.S., III: Lie derivations of primitive rings. Michigan Math. J. \textbf{11}(2), 183--187 (1964).
+
+\bibitem[Rotman(2009)]{Rotman2009}
+Rotman, J.J.: An Introduction to Homological Algebra, 2nd edn. Universitext, Springer, New York (2009).
+
+\bibitem[Zhang and Yu(2006)]{ZhangYu2006}
+Zhang, J.-H., Yu, W.-Y.: Jordan derivations of triangular algebras. Linear Algebra Appl. \textbf{419}(1), 251--255 (2006).
+
+\bibitem[Wang(2019)]{Wang2019}
+Wang, Y.: Lie (Jordan) derivations of arbitrary triangular algebras. Aequationes Math. \textbf{93}, 1221--1229 (2019).
+
+\bibitem[Weibel(1994)]{Weibel1994}
+Weibel, C.A.: An Introduction to Homological Algebra. Cambridge Stud. Adv. Math. 38, Cambridge University Press, Cambridge (1994).
+
+\end{thebibliography}
+
+\end{document}
