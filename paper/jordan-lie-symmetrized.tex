@@ -1,4 +1,4 @@
-% Version: v8 (2026-10-28), the first source read for the Lie product is cited (Herstein 1961, Section 2, which defines the Lie and the Jordan product of an associative ring). Earlier, v7: the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. Earlier, v6: the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
+% Version: v9 (2026-10-28), the bibliography entry of the first paper of the series names its one author, Adrabi (it named a second author by mistake). Earlier, v8: the first source read for the Lie product is cited (Herstein 1961, Section 2, which defines the Lie and the Jordan product of an associative ring). Earlier, v7: the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. Earlier, v6: the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
 \documentclass[]{interact}
 \usepackage[utf8]{inputenc}
 
@@ -46,7 +46,7 @@
 \newcommand{\BSDer}{\mathrm{BSDer}}
 \newcommand{\LDer}{\mathrm{LDer}}
 
-\newcommand{\paperversion}{8}
+\newcommand{\paperversion}{9}
 
 \begin{document}
 \title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
@@ -129,7 +129,7 @@ Section~\ref{sec:symmetrized} recalls the classical notions, recalls the symmetr
 Section~\ref{sec:base-change} shows that the dimension of the space of Jordan derivations is stable under extension of the base field.
 Section~\ref{sec:lie} treats the antisymmetrized product, full matrix algebras, and triangular algebras through the theorems of Martindale and Cheung.
 We place each example right after the result it illustrates.
-The twisted symmetrized product and its derivations are the subject of the first paper in our series on symmetrized products~\cite{AdrabiBennis2026a}, from which the definition and the dictionary of Section~\ref{sec:symmetrized} are taken.
+The twisted symmetrized product and its derivations are the subject of the first paper in our series on symmetrized products~\cite{Adrabi2026a}, from which the definition and the dictionary of Section~\ref{sec:symmetrized} are taken.
 
 \section{Preliminaries and the symmetrized product}\label{sec:symmetrized}
 
@@ -177,13 +177,13 @@ So $T$ is not prime, since $e_1 \neq 0$ and $e_2 \neq 0$, and the prime-ring res
 
 Let $A$ be a $K$-algebra with product $\mu$.
 Let $\sigma \colon A \otimes A \to A \otimes A$ be a $K$-linear map with $\sigma^2 = \mathrm{id}$, for instance the swap $\tau(x \otimes y) = y \otimes x$.
-It gives a symmetrized product \cite[Section 2]{AdrabiBennis2026a}
+It gives a symmetrized product \cite[Section 2]{Adrabi2026a}
 \[
 x \cdot_\sigma y = \mu(x \otimes y) + \mu(\sigma(x \otimes y)).
 \]
 For $\sigma = \tau$ this is the Jordan product $x \circ y$.
 
-\begin{definition}[{\cite[Definition 2.1]{AdrabiBennis2026a}}]\label{def:sigma-derivation}
+\begin{definition}[{\cite[Definition 2.1]{Adrabi2026a}}]\label{def:sigma-derivation}
 Let $A$ be a $K$-algebra and let $\sigma$ be a $K$-linear involution of $A \otimes A$.
 A \emph{braided-symmetric derivation} for $\sigma$ is a $K$-linear map $D \colon A \to A$ with
 \begin{equation}\label{eq:sigma-leibniz}
@@ -204,7 +204,7 @@ A \otimes A \arrow[r, "\mu_\sigma"'] & A
 
 The next remark, recalled from the first paper, says what Definition~\ref{def:sigma-derivation} gives for the two involutions that use no structure of $A$.
 
-\begin{remark}[{\cite[Remark 2.4]{AdrabiBennis2026a}}]\label{rem:sigma-derivation-classification}
+\begin{remark}[{\cite[Remark 2.4]{Adrabi2026a}}]\label{rem:sigma-derivation-classification}
 Let $A$ be a $K$-algebra and let $\sigma$ be an involution of $A \otimes A$.
 Identity~\eqref{eq:sigma-leibniz} for $\sigma$ is the Leibniz rule for the product $\cdot_\sigma$.
 So $\BSDer_\sigma(A)$ is the set of derivations of the nonassociative algebra $(A, \cdot_\sigma)$, in the sense of \citet[Part I]{Jacobson1937}.
@@ -631,8 +631,8 @@ So on $T_2(\mathbb{F}_3)$, as on $M_n(K)$, we have $\JDer = \Der$, while $\LDer$
 
 \begin{thebibliography}{9}
 
-\bibitem[Adrabi and Bennis(2026)]{AdrabiBennis2026a}
-Adrabi, A., Bennis, D.: Braided-symmetric derivations of algebras. Preprint (2026). \url{https://github.com/abderrahim-lectures/braided-sym-deriv}.
+\bibitem[Adrabi(2026)]{Adrabi2026a}
+Adrabi, A.: Braided-symmetric derivations of algebras. Preprint (2026). \url{https://github.com/abderrahim-lectures/braided-sym-deriv}.
 
 \bibitem[Alizadeh(2009)]{Alizadeh2009}
 Alizadeh, R.: Jordan derivations of full matrix algebras. Linear Algebra Appl. \textbf{430}, 574--578 (2009).

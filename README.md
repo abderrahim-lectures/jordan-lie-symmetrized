@@ -1,7 +1,7 @@
 # Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products
 
 Author: Abderrahim Adrabi, Mohammed V University in Rabat.  
-Current version: **v8**.
+Current version: **v9**.
 
 ## The idea of the paper
 
@@ -28,6 +28,7 @@ Build the paper with `cd paper && latexmk -pdf jordan-lie-symmetrized.tex`. Buil
 
 One entry per released version, newest first. Each version is also a tag of this repository.
 
+- **v9** (2026-10-28): the bibliography entry of the first paper of the series names its one author, Adrabi (it named a second author by mistake). No theorem changes.
 - **v8** (2026-10-28): the first source read for the Lie product is cited (Herstein 1961, Section 2, which defines the Lie and the Jordan product of an associative ring). No theorem changes.
 - **v7** (2026-10-28): the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. No theorem changes.
 - **v6** (2026-10-28): the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source, and adds one sentence on the factor 2 of the survey's product. No theorem changes.
@@ -41,7 +42,7 @@ One entry per released version, newest first. Each version is also a tag of this
 
 Citations of the works the paper uses. The works themselves are not part of this repository.
 
-1. Adrabi, A., Bennis, D.: Braided-symmetric derivations of algebras. Preprint (2026). https://github.com/abderrahim-lectures/braided-sym-deriv.
+1. Adrabi, A.: Braided-symmetric derivations of algebras. Preprint (2026). https://github.com/abderrahim-lectures/braided-sym-deriv.
 2. Alizadeh, R.: Jordan derivations of full matrix algebras. Linear Algebra Appl. 430, 574–578 (2009).
 3. Brešar, M.: Jordan derivations on semiprime rings. Proc. Amer. Math. Soc. 104(4), 1003–1006 (1988).
 4. Brešar, M., Zelmanov, E.: Jordan homomorphisms: a survey. Serdica Math. J. 51, 203–230 (2025).
