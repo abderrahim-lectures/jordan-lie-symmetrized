@@ -1,4 +1,4 @@
-% Version: v2 (2026-10-28), three linking sentences before consecutive environments (body-style rule 11). No claim changes.
+% Version: v3 (2026-10-28), sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
 \documentclass[]{interact}
 \usepackage[utf8]{inputenc}
 
@@ -13,6 +13,7 @@
 \hypersetup{linktoc=all}
 
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usepackage[yyyymmdd,hhmmss]{datetime}
 \usepackage{float}
 
@@ -45,7 +46,7 @@
 \newcommand{\SDer}{\mathrm{SDer}}
 \newcommand{\LDer}{\mathrm{LDer}}
 
-\newcommand{\paperversion}{2}
+\newcommand{\paperversion}{3}
 
 \begin{document}
 \title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
@@ -110,34 +111,24 @@ A ring is \emph{left primitive} if it has a faithful simple left module, and rig
 Here an \emph{idempotent} is an element $e$ with $e^2 = e$, and it is \emph{nontrivial} if $e \neq 0$ and $e \neq 1$.
 Here $d$ may take values in a larger ring.
 
-The next result uses the \emph{standard polynomial} of degree $4$ \citep[\S1]{Amitsur1950},
-\[
-S_4(x_1, x_2, x_3, x_4) = \sum_{\varpi} \operatorname{sgn}(\varpi)\, x_{\varpi(1)} x_{\varpi(2)} x_{\varpi(3)} x_{\varpi(4)},
-\]
-where $\varpi$ runs over the permutations of $\{1,2,3,4\}$.
-We say that a ring \emph{satisfies $S_4$} if $S_4$ is zero for every choice of four elements of the ring.
-A prime ring satisfies $S_4$ exactly when it is commutative or is isomorphic to a subring of $M_2(F)$ for a field $F$ \citep[Lemma 1]{Bresar1993}.
-\citet[Theorem 5]{Bresar1993} proved the standard form for prime rings of characteristic different from $2$ that do not satisfy $S_4$.
 
-Triangular algebras are defined in Section~\ref{sec:preliminaries}.
+Triangular algebras are defined in Section~\ref{sec:symmetrized}.
 For them, \citet[Theorem 2.1]{ZhangYu2006} proved that every Jordan derivation of a triangular algebra is a derivation.
 For Lie derivations, \citet[Theorem 11]{Cheung2003} found conditions under which every Lie derivation has the standard form.
-\citet[\S3]{LiWei2015} extended this to more algebras.
 \citet[Theorem 3.1 and Corollary 3.1]{Wang2019} treated every triangular algebra, with no condition on the module or the centre. For these algebras a Lie derivation is a sum $\delta + \tau$, where $\delta$ is a derivation into a larger triangular algebra and $\tau$ is a linear map into its centre that vanishes on commutators.
 
 
 In this paper a Jordan derivation is a derivation of the symmetrized product $x \circ y$, and a Lie derivation is a derivation of the antisymmetrized product $[x,y]$. % claim-ok: states the point of view of this paper
 We follow this order.
-Section~\ref{sec:preliminaries} recalls the classical notions.
-Section~\ref{sec:symmetrized} defines the symmetrized product for an involution of $A \otimes A$, treats the identity and the swap, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
+Section~\ref{sec:symmetrized} recalls the classical notions, defines the symmetrized product for an involution of $A \otimes A$, treats the identity and the swap, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
 Section~\ref{sec:base-change} shows that the dimension of the space of Jordan derivations is stable under extension of the base field.
 Section~\ref{sec:lie} treats the antisymmetrized product, full matrix algebras, and triangular algebras through the theorems of Martindale and Cheung.
 We place each example right after the result it illustrates.
+The twisted symmetrized product and its derivations are treated in the companion paper \textit{Braided-Symmetric Derivations of Algebras} (\url{https://github.com/abderrahim-lectures/braided-sym-deriv}), from which the definition and the dictionary of Section~\ref{sec:symmetrized} are taken.
 
-\section{Preliminaries}\label{sec:preliminaries}
+\section{Preliminaries and the symmetrized product}\label{sec:symmetrized}
 
-This section recalls the classical notions we need, and none of it is new.
-We treat five kinds of derivation and then triangular algebras.
+This section recalls the classical notions we need, defines the symmetrized product for an involution of $A \otimes A$ and identifies the derivations for the identity and the swap.
 
 
 From now on, $A$ is a $K$-algebra with unit $1$.
@@ -178,9 +169,6 @@ The idempotents $e_1 = \left(\begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix
 So $T$ is not prime, since $e_1 \neq 0$ and $e_2 \neq 0$, and the prime-ring results above do not apply to triangular algebras.
 
 
-\section{The symmetrized product}\label{sec:symmetrized}
-
-This section defines the symmetrized product for an involution of $A \otimes A$ and identifies the derivations for the identity and the swap.
 
 Let $A$ be a $K$-algebra with product $\mu$.
 Let $\sigma \colon A \otimes A \to A \otimes A$ be a $K$-linear map with $\sigma^2 = \mathrm{id}$, for instance the swap $\tau(x \otimes y) = y \otimes x$.
@@ -198,6 +186,14 @@ D(x \cdot_\sigma y) = D(x) \cdot_\sigma y + x \cdot_\sigma D(y) \quad \text{for 
 We write $\SDer_\sigma(A)$ for the set of $\sigma$-symmetric derivations for $\sigma$.
 This set is a $K$-subspace of $\mathrm{End}_K(A)$, since the condition is linear in $D$.
 \end{definition}
+
+Identity~\eqref{eq:sigma-leibniz} says that the following square commutes.
+\[
+\begin{tikzcd}[column sep=large]
+A \otimes A \arrow[r, "\mu_\sigma"] \arrow[d, "D \otimes 1 + 1 \otimes D"'] & A \arrow[d, "D"] \\
+A \otimes A \arrow[r, "\mu_\sigma"'] & A
+\end{tikzcd}
+\]
 
 The next remark records what Definition~\ref{def:sigma-derivation} says for the two involutions that use no structure of $A$.
 
@@ -217,7 +213,7 @@ For example, take the linear map with $D(1) = 1$ and $D = 0$ on a complement of 
 Then $D$ is not a derivation, since a derivation satisfies $D(1) = D(1 \cdot 1) = 2D(1) = 0$ in characteristic $2$.
 
 For the swap $\tau$ we get $x \cdot_\tau y = xy + yx = x \circ y$.
-So the defining identity is the $\circ$ form of the Jordan identity from Section~\ref{sec:preliminaries}.
+So the defining identity is the $\circ$ form of the Jordan identity recalled above.
 Hence $\SDer_\tau(A) = \JDer(A)$ in every characteristic.
 
 Every derivation is a Jordan derivation \citep[p.~1003]{Bresar1988}.
@@ -229,7 +225,7 @@ When $\operatorname{char} K \neq 2$, this gives $\SDer_{\mathrm{id}}(A) \subsete
 This is an inclusion between the spaces of two involutions on one algebra. % claim-ok: names the inclusion displayed just above
 \end{remark}
 
-The smallest nonreduced algebra shows both inclusions of Section~\ref{sec:preliminaries} at work.
+The smallest nonreduced algebra shows both inclusions recalled above at work.
 
 \begin{example}[Dual numbers]\label{ex:dual-numbers}
 Let $A = K[\varepsilon]/(\varepsilon^2)$, with basis $\{1, \varepsilon\}$.
@@ -353,7 +349,13 @@ This rule defines isomorphisms of $L$-vector spaces
 \beta \colon L \otimes_K \mathrm{End}_K(A) \to \mathrm{End}_L(A_L), \qquad
 \gamma \colon L \otimes_K \mathrm{Hom}_K(A \otimes A, A) \to \mathrm{Hom}_L(A_L \otimes_L A_L, A_L)
 \]
-with $\Phi_L \circ \beta = \gamma \circ (\mathrm{id}_L \otimes \Phi)$.
+such that the following square commutes.
+\[
+\begin{tikzcd}[column sep=huge]
+L \otimes_K \mathrm{End}_K(A) \arrow[r, "\mathrm{id}_L \otimes \Phi"] \arrow[d, "\beta"'] & L \otimes_K \mathrm{Hom}_K(A \otimes A, A) \arrow[d, "\gamma"] \\
+\mathrm{End}_L(A_L) \arrow[r, "\Phi_L"'] & \mathrm{Hom}_L(A_L \otimes_L A_L, A_L)
+\end{tikzcd}
+\]
 So $\beta$ and $\gamma$ carry the exact sequence
 \[
 0 \to L \otimes_K \SDer_\sigma(A) \to L \otimes_K \mathrm{End}_K(A) \xrightarrow{\ \mathrm{id}_L \otimes \Phi\ } L \otimes_K \mathrm{Hom}_K(A \otimes A, A)
@@ -446,7 +448,7 @@ We check the four parts in order.
 (iii) By (ii), $d([x,y]) = [d(x),y] + [x,d(y)]$, and $t([x,y]) = 0$.
 Since $t(x)$ and $t(y)$ are central, $[t(x), y] = 0 = [x, t(y)]$.
 Adding gives the Lie derivation identity for $d + t$.
-(iv) Every derivation vanishes at $1$, as recalled in Section~\ref{sec:preliminaries}, while $(d+t)(1) = t(1) \neq 0$.
+(iv) Every derivation vanishes at $1$, as recalled in Section~\ref{sec:symmetrized}, while $(d+t)(1) = t(1) \neq 0$.
 \end{proof}
 
 So inner derivations lie in both spaces.
@@ -539,7 +541,9 @@ Let $\omega \colon \LDer(A) \to \mathrm{Hom}_K(HH_0(A,A), K)$ send $\operatornam
 The map $\omega$ is surjective, since each $t$ is a Lie derivation by Proposition~\ref{prop:lie-classification}(iii), and its kernel is $\Inn(A) = \Der(A)$.
 So the sequence
 \[
-0 \to \Der(A) \to \LDer(A) \xrightarrow{\ \omega\ } \mathrm{Hom}_K\bigl(HH_0(A,A), K\bigr) \to 0
+\begin{tikzcd}[column sep=large]
+0 \arrow[r] & \Der(A) \arrow[r] & \LDer(A) \arrow[r, "\omega"] & \mathrm{Hom}_K\bigl(HH_0(A,A), K\bigr) \arrow[r] & 0
+\end{tikzcd}
 \]
 is exact.
 The map $\theta$ above is one element of the right-hand space.
@@ -578,13 +582,7 @@ Let $\mathfrak{A} = \mathrm{Tri}(A, M, B)$. If the following two conditions hold
 \end{enumerate}
 \end{theorem}
 
-\citet[\S3]{LiWei2015} give a necessary and sufficient condition for every Lie derivation of a generalized matrix algebra to be standard.
-Let $R$ be a commutative ring with identity. A Morita context \citep[\S2.1]{LiWei2015} consists of two $R$-algebras $A$ and $B$, two bimodules ${}_A M_B$ and ${}_B N_A$, and two bimodule homomorphisms called pairings, which make two diagrams commutative:
-\[
-M \otimes_B N \to A, \qquad N \otimes_A M \to B.
-\]
-A generalized matrix algebra is defined from a Morita context \citep[\S2.1]{LiWei2015}.
-The bimodule $N$ may be zero, and then the algebra is triangular \citep[\S2.1 and Corollary 3.6]{LiWei2015}.
+The next corollary applies the theorem of Cheung to the $\sigma$-antisymmetrized derivations of $T$. % claim-ok: signpost for the corollary stated right after
 
 \begin{corollary}\label{cor:triangular-lie}
 Let $T = \mathrm{Tri}(A,M,B)$ satisfy conditions (I) and (II) of Theorem~\ref{thm:cheung}. Then every $\sigma$-antisymmetric derivation of $T$ for $\tau$ has the standard form $d + t$, and it is a derivation only if $t(1) = 0$.
@@ -629,14 +627,8 @@ So on $T_2(\mathbb{F}_3)$, as on $M_n(K)$, we have $\JDer = \Der$, while $\LDer$
 \bibitem[Alizadeh(2009)]{Alizadeh2009}
 Alizadeh, R.: Jordan derivations of full matrix algebras. Linear Algebra Appl. \textbf{430}, 574--578 (2009).
 
-\bibitem[Amitsur and Levitzki(1950)]{Amitsur1950}
-Amitsur, S.A., Levitzki, J.: Minimal identities for algebras. Proc. Amer. Math. Soc. \textbf{1}(4), 449--463 (1950).
-
 \bibitem[Bre\v{s}ar(1988)]{Bresar1988}
 Bre\v{s}ar, M.: Jordan derivations on semiprime rings. Proc. Amer. Math. Soc. \textbf{104}(4), 1003--1006 (1988).
-
-\bibitem[Bre\v{s}ar(1993)]{Bresar1993}
-Bre\v{s}ar, M.: Commuting traces of biadditive mappings, commutativity-preserving mappings and Lie mappings. Trans. Amer. Math. Soc. \textbf{335}(2), 525--546 (1993).
 
 \bibitem[Chambert-Loir(2021)]{ChambertLoir2021}
 Chambert-Loir, A.: (Mostly) Commutative Algebra. Universitext. Springer, Cham (2021).
@@ -655,9 +647,6 @@ Hochschild, G.: On the cohomology groups of an associative algebra. Ann. of Math
 
 \bibitem[Jacobson(1937)]{Jacobson1937}
 Jacobson, N.: Abstract derivation and Lie algebras. Trans. Amer. Math. Soc. \textbf{42}(2), 206--224 (1937).
-
-\bibitem[Li and Wei(2015)]{LiWei2015}
-Li, Y.-B., Wei, F.: Lie derivations of dual extensions of algebras. Colloq. Math. \textbf{141}(1), 65--82 (2015). arXiv:1303.0831.
 
 \bibitem[Lam(2001)]{Lam2001}
 Lam, T.Y.: A First Course in Noncommutative Rings, 2nd edn. Graduate Texts in Mathematics 131. Springer, New York (2001).
