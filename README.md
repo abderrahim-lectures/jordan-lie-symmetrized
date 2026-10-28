@@ -1,7 +1,7 @@
 # Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products
 
 Author: Abderrahim Adrabi, Mohammed V University in Rabat.  
-Current version: **v6**.
+Current version: **v7**.
 
 ## The idea of the paper
 
@@ -28,6 +28,7 @@ Build the paper with `cd paper && latexmk -pdf jordan-lie-symmetrized.tex`. Buil
 
 One entry per released version, newest first. Each version is also a tag of this repository.
 
+- **v7** (2026-10-28): the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. No theorem changes.
 - **v6** (2026-10-28): the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source, and adds one sentence on the factor 2 of the survey's product. No theorem changes.
 - **v5** (2026-10-28): the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. No theorem changes.
 - **v4** (2026-10-28): the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes.
@@ -49,12 +50,13 @@ Citations of the works the paper uses. The works themselves are not part of this
 8. Herstein, I.N.: Jordan derivations of prime rings. Proc. Amer. Math. Soc. 8(6), 1104–1110 (1957).
 9. Hochschild, G.: On the cohomology groups of an associative algebra. Ann. of Math. 46(1), 58–67 (1945).
 10. Jacobson, N.: Abstract derivation and Lie algebras. Trans. Amer. Math. Soc. 42(2), 206–224 (1937).
-11. Lam, T.Y.: A First Course in Noncommutative Rings, 2nd edn. Graduate Texts in Mathematics 131. Springer, New York (2001).
-12. Martindale, W.S., III: Lie derivations of primitive rings. Michigan Math. J. 11(2), 183–187 (1964).
-13. Rotman, J.J.: An Introduction to Homological Algebra, 2nd edn. Universitext, Springer, New York (2009).
-14. Zhang, J.-H., Yu, W.-Y.: Jordan derivations of triangular algebras. Linear Algebra Appl. 419(1), 251–255 (2006).
-15. Wang, Y.: Lie (Jordan) derivations of arbitrary triangular algebras. Aequationes Math. 93, 1221–1229 (2019).
-16. Weibel, C.A.: An Introduction to Homological Algebra. Cambridge Stud. Adv. Math. 38, Cambridge University Press, Cambridge (1994).
+11. Jordan, P., von Neumann, J., Wigner, E.: On an algebraic generalization of the quantum mechanical formalism. Ann. of Math. 35(1), 29–64 (1934).
+12. Lam, T.Y.: A First Course in Noncommutative Rings, 2nd edn. Graduate Texts in Mathematics 131. Springer, New York (2001).
+13. Martindale, W.S., III: Lie derivations of primitive rings. Michigan Math. J. 11(2), 183–187 (1964).
+14. Rotman, J.J.: An Introduction to Homological Algebra, 2nd edn. Universitext, Springer, New York (2009).
+15. Zhang, J.-H., Yu, W.-Y.: Jordan derivations of triangular algebras. Linear Algebra Appl. 419(1), 251–255 (2006).
+16. Wang, Y.: Lie (Jordan) derivations of arbitrary triangular algebras. Aequationes Math. 93, 1221–1229 (2019).
+17. Weibel, C.A.: An Introduction to Homological Algebra. Cambridge Stud. Adv. Math. 38, Cambridge University Press, Cambridge (1994).
 
 ## About this repository
 
