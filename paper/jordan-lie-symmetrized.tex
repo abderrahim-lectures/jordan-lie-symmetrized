@@ -1,4 +1,4 @@
-% Version: v5 (2026-10-28), the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
+% Version: v6 (2026-10-28), the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
 \documentclass[]{interact}
 \usepackage[utf8]{inputenc}
 
@@ -46,7 +46,7 @@
 \newcommand{\BSDer}{\mathrm{BSDer}}
 \newcommand{\LDer}{\mathrm{LDer}}
 
-\newcommand{\paperversion}{5}
+\newcommand{\paperversion}{6}
 
 \begin{document}
 \title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
@@ -86,6 +86,8 @@ A \emph{derivation} of an algebra $A$ is a linear map $D \colon A \to A$ with $D
 The notion goes back to \citet[Part I]{Jacobson1937}, who studied the derivations of an arbitrary nonassociative algebra.
 \citet[\S\S2 and 4]{Hochschild1945} defined the cocycles of an associative algebra, and its $1$-cocycles are the derivations.
 A \emph{Jordan derivation} of $A$ is a linear map with $D(x \circ y) = D(x) \circ y + x \circ D(y)$ for all $x, y \in A$, where $x \circ y = xy + yx$.
+This product is twice the Jordan product $\tfrac12 (xy + yx)$ of the associative algebra $A$ \citep[Example 2.1]{BresarZelmanov2025}.
+We do not divide by $2$, so that characteristic $2$ is allowed.
 \citet[p.~1104]{Herstein1957} introduced this notion.
 His result needs three notions for a ring $R$.
 We call $R$ \emph{prime} if $aRb = 0$ implies $a = 0$ or $b = 0$ \citep[p.~1003]{Bresar1988}.
@@ -118,7 +120,7 @@ For Lie derivations, \citet[Theorem 11]{Cheung2003} found conditions under which
 \citet[Theorem 3.1 and Corollary 3.1]{Wang2019} treated every triangular algebra, with no condition on the module or the centre. For these algebras a Lie derivation is a sum $\delta + \tau$, where $\delta$ is a derivation into a larger triangular algebra and $\tau$ is a linear map into its centre that vanishes on commutators.
 
 
-In this paper a Jordan derivation is a derivation of the symmetrized product $x \circ y$, and a Lie derivation is a derivation of the antisymmetrized product $[x,y]$. % claim-ok: states the point of view of this paper
+In this paper a Jordan derivation is a derivation of the symmetrized product $x \circ y$ \citep[Example 2.1]{BresarZelmanov2025}, and a Lie derivation is a derivation of the antisymmetrized product $[x,y]$. % claim-ok: states the point of view of this paper
 We follow this order.
 Section~\ref{sec:symmetrized} recalls the classical notions, recalls the symmetrized product, the braided-symmetric derivations and their values for the identity and the swap from the first paper, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
 Section~\ref{sec:base-change} shows that the dimension of the space of Jordan derivations is stable under extension of the base field.
@@ -215,7 +217,7 @@ For example, take the linear map with $D(1) = 1$ and $D = 0$ on a complement of 
 Then $D$ is not a derivation, since a derivation satisfies $D(1) = D(1 \cdot 1) = 2D(1) = 0$ in characteristic $2$.
 
 For the swap $\tau$ we get $x \cdot_\tau y = xy + yx = x \circ y$.
-So the defining identity is the $\circ$ form of the Jordan identity recalled above.
+So the defining identity is the $\circ$ form of the identity for a Jordan derivation recalled above.
 Hence $\BSDer_\tau(A) = \JDer(A)$ in every characteristic.
 
 Every derivation is a Jordan derivation \citep[p.~1003]{Bresar1988}.
@@ -463,7 +465,7 @@ It is stated for a unital associative ring and a $2$-torsion free bimodule \cite
 Let $A$ be a unital associative ring, let $M$ be a $2$-torsion free $A$-bimodule, and let $n \geq 2$. Then every Jordan derivation $D \colon M_n(A) \to M_n(M)$ is a derivation.
 \end{theorem}
 
-We also use a description of the first Hochschild cohomology.
+We also use \citet[Lemma 9.2.1]{Weibel1994}, which describes the first Hochschild cohomology.
 It gives $HH^1$ of the matrix algebra in Example~\ref{ex:matrix}.
 Let $R$ be a $k$-algebra and $M$ an $R$-bimodule.
 \citet[\S9.2]{Weibel1994} writes $\mathrm{Der}_k(R,M)$ for the $k$-derivations.
@@ -634,6 +636,9 @@ Alizadeh, R.: Jordan derivations of full matrix algebras. Linear Algebra Appl. \
 
 \bibitem[Bre\v{s}ar(1988)]{Bresar1988}
 Bre\v{s}ar, M.: Jordan derivations on semiprime rings. Proc. Amer. Math. Soc. \textbf{104}(4), 1003--1006 (1988).
+
+\bibitem[Bre\v{s}ar and Zelmanov(2025)]{BresarZelmanov2025}
+Bre\v{s}ar, M., Zelmanov, E.: Jordan homomorphisms: a survey. Serdica Math. J. \textbf{51}, 203--230 (2025).
 
 \bibitem[Chambert-Loir(2021)]{ChambertLoir2021}
 Chambert-Loir, A.: (Mostly) Commutative Algebra. Universitext. Springer, Cham (2021).
