@@ -1,4 +1,4 @@
-% Version: v7 (2026-10-28), the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. Earlier, v6: the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
+% Version: v8 (2026-10-28), the first source read for the Lie product is cited (Herstein 1961, Section 2, which defines the Lie and the Jordan product of an associative ring). Earlier, v7: the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. Earlier, v6: the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
 \documentclass[]{interact}
 \usepackage[utf8]{inputenc}
 
@@ -46,7 +46,7 @@
 \newcommand{\BSDer}{\mathrm{BSDer}}
 \newcommand{\LDer}{\mathrm{LDer}}
 
-\newcommand{\paperversion}{7}
+\newcommand{\paperversion}{8}
 
 \begin{document}
 \title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
@@ -123,6 +123,7 @@ For Lie derivations, \citet[Theorem 11]{Cheung2003} found conditions under which
 
 
 In this paper a Jordan derivation is a derivation of the symmetrized product $x \circ y$ \citep[Example 2.1]{BresarZelmanov2025}, and a Lie derivation is a derivation of the antisymmetrized product $[x,y]$. % claim-ok: states the point of view of this paper
+\citet[\S2]{Herstein1961} calls $[a,b] = ab - ba$ the Lie product and $a \circ b = ab + ba$ the Jordan product of an associative ring, and notes that the two coincide in characteristic $2$.
 We follow this order.
 Section~\ref{sec:symmetrized} recalls the classical notions, recalls the symmetrized product, the braided-symmetric derivations and their values for the identity and the swap from the first paper, computes the dual numbers, and applies the theorem of Zhang and Yu to triangular algebras.
 Section~\ref{sec:base-change} shows that the dimension of the space of Jordan derivations is stable under extension of the base field.
@@ -653,6 +654,9 @@ Cusack, J.M.: Jordan derivations on rings. Proc. Amer. Math. Soc. \textbf{53}(2)
 
 \bibitem[Herstein(1957)]{Herstein1957}
 Herstein, I.N.: Jordan derivations of prime rings. Proc. Amer. Math. Soc. \textbf{8}(6), 1104--1110 (1957).
+
+\bibitem[Herstein(1961)]{Herstein1961}
+Herstein, I.N.: Lie and Jordan structures in simple, associative rings. Bull. Amer. Math. Soc. \textbf{67}, 517--531 (1961).
 
 \bibitem[Hochschild(1945)]{Hochschild1945}
 Hochschild, G.: On the cohomology groups of an associative algebra. Ann. of Math. \textbf{46}(1), 58--67 (1945).
