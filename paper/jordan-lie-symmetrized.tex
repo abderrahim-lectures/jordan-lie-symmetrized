@@ -1,4 +1,4 @@
-% Version: v9 (2026-10-28), the bibliography entry of the first paper of the series names its one author, Adrabi (it named a second author by mistake). Earlier, v8: the first source read for the Lie product is cited (Herstein 1961, Section 2, which defines the Lie and the Jordan product of an associative ring). Earlier, v7: the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. Earlier, v6: the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
+% Version: v10 (2026-10-29), the abstract states the Lie classification and the two triangular corollaries, which it left out. No theorem changes. Earlier, v9: the bibliography entry of the first paper of the series names its one author, Adrabi (it named a second author by mistake). Earlier, v8: the first source read for the Lie product is cited (Herstein 1961, Section 2, which defines the Lie and the Jordan product of an associative ring). Earlier, v7: the first source of the Jordan product is cited (quasi-multiplication, Jordan, von Neumann and Wigner 1934, p. 64; the sum without the half, Herstein 1957, p. 1104); the origins and intersections tables are added. Earlier, v6: the Jordan product, the symmetrized product and the Jordan identity are cited to Bresar and Zelmanov 2025 (Example 2.1, Section 2, Serdica 51, p. 205), where they were used without a source. It adds one sentence on the factor 2 of the survey's product. Earlier, v5: the symmetrized product and the braided-symmetric derivation are recalled from braided-sym-deriv with located citations (Definition 2.1, Remark 2.4) in place of a new definition, and the symbol is BSDer as in that paper. Earlier, v4: the other paper of the series on symmetrized products is cited with a bibliography entry and a citation, in place of a web address in the text. No claim changes. Earlier, v3: sections merged (the preliminaries and the symmetrized product form one section); the standard polynomial and the Li and Wei material removed; three commutative diagrams; the companion paper is cited; one linking sentence and two self-references repaired.
 \documentclass[]{interact}
 \usepackage[utf8]{inputenc}
 
@@ -46,7 +46,7 @@
 \newcommand{\BSDer}{\mathrm{BSDer}}
 \newcommand{\LDer}{\mathrm{LDer}}
 
-\newcommand{\paperversion}{9}
+\newcommand{\paperversion}{10}
 
 \begin{document}
 \title{Jordan and Lie Derivations as Derivations of the Symmetrized and Antisymmetrized Products}
@@ -64,8 +64,12 @@ We view the Jordan derivations and the Lie derivations of an algebra as the deri
 These are the symmetrized product $xy + yx$ and the antisymmetrized product $xy - yx$.
 The question whether such a derivation is a derivation becomes a comparison of three spaces, $\Der(A)$, $\JDer(A)$ and $\LDer(A)$.
 We show that the dimension of $\JDer(A)$ does not change when the base field is extended.
-We compute the three spaces for full matrix algebras, and we apply the theorems of Zhang and Yu and of Cheung to triangular algebras, with the upper triangular $2 \times 2$ matrices as the smallest case.
-In both cases a trace-type map is a Lie derivation that is not a derivation.
+We prove that the $\sigma$-antisymmetric derivations for the swap are exactly the Lie derivations, and that every derivation plus a central trace-type map that kills commutators is a Lie derivation.
+Such a map is a derivation only if the trace-type part is zero at the identity.
+We compute the three spaces for full matrix algebras.
+For triangular algebras we apply the theorem of Zhang and Yu to the Jordan case and the theorem of Cheung to the Lie case, with the upper triangular $2 \times 2$ matrices as the smallest case.
+In the Jordan case every such derivation is a derivation.
+In the Lie case every such derivation has the standard form, and a trace-type map gives a Lie derivation that is not a derivation.
 \end{abstract}
 
 \begin{keywords}
